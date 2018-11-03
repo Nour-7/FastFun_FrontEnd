@@ -42,7 +42,7 @@ export class ProfileComponent {
         var id =this.route.snapshot.params.id
         
         this.apiservice.getProfile(id).subscribe(data =>{
-           this.profile =data.json()
+           this.profile =data
         })
     }
 

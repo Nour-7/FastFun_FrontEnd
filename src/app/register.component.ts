@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthSrevice } from './auth.service';
+import { AuthService } from './auth.service';
 
 @Component({
     selector: 'register',
@@ -8,11 +8,11 @@ import { AuthSrevice } from './auth.service';
 })
 export class RegisterComponent {
     registerData= {}
-    constructor(private authservice: AuthSrevice) { }
+    constructor(private authService: AuthService) { }
 
     post(){
         console.log(this.registerData)
-        this.authservice.registerUser(this.registerData)
+        this.authService.registerUser(this.registerData)
     }
 
 }
