@@ -9,14 +9,15 @@
 
         <form>
             <mat-form-field>
-                <input [(ngModel)]="registerData.email" name="email" matInput placeholder="Email" type="email">
+                <input [(ngModel)]="registerData.email" name="email"  required matInput placeholder="Email" type="email">
             </mat-form-field>
             <mat-form-field>
-                <input [(ngModel)]="registerData.pwd" name="Password" matInput placeholder="Password" type="password">
+                <input [(ngModel)]="registerData.pwd" name="Password" required matInput placeholder="Password" type="password">
             </mat-form-field>
+            <div style="color:#cc0000">{{ErrorMessage}}</div>
         <br/>
             <mat-form-field>
-                <input [(ngModel)]="registerData.name" name="name" matInput placeholder="name" >
+                <input [(ngModel)]="registerData.name" name="name" required matInput placeholder="name" >
             </mat-form-field>
             <br/>
             <mat-form-field style="width: 100%">

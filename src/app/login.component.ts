@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from './auth.service';
+import { Route, Router } from '@angular/router';
 
 @Component({
     selector: 'login',
@@ -15,29 +16,38 @@ import { AuthService } from './auth.service';
 
         <form>
             <mat-form-field >
-            <input [(ngModel)]="loginData.email" name="email" matInput placeholder="Email" type="email">
+            <input [(ngModel)]="loginData.email" name="email"  required matInput placeholder="Email" type="email">
             </mat-form-field>
             <mat-form-field >
-            <input [(ngModel)]="loginData.pwd" name="Password"  matInput placeholder="Password" type="password">
+            <input [(ngModel)]="loginData.pwd" name="Password"  required matInput placeholder="Password" type="password">
             </mat-form-field>
-            <button (click)="post()" mat-raised-button color="primary">Login</button>
+            <button (click)="post()" mat-raised-button  color="primary">Login</button>
+            <div style="color:#cc0000">{{ErrorMessage}}</div>
             </form>
         </mat-card-content>
 
-
     </mat-card>
+   
+
 
 
   `,
 
 })
 export class LoginComponent {
-    loginData= {}
-    constructor(private authservice: AuthService) { }
-
+    loginData= {};
+    ErrorMessage="";
+    constructor(private authservice: AuthService,private router:Router) { }
+    
     post(){
         console.log(this.loginData)
-        this.authservice.loginUser(this.loginData)
+        this.authservice.loginUser(this.loginData).subscribe(res =>{
+            this.router.navigate(['/'])
+        },error =>{
+            if(error.status == 401){
+                this.ErrorMessage = "Email or Password invalid"
+            }
+        })
     }
 
 }

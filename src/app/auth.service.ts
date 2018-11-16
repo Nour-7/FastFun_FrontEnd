@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core';
-
+import { map } from 'rxjs/operators';
 @Injectable()
 export class AuthService {
     messages = [];
@@ -20,14 +20,16 @@ export class AuthService {
     }
 
    registerUser(registerData) {
-        this.http.post<any>(this.path + '/register', registerData).subscribe(res => {
+    return this.http.post<any>(this.path + '/register', registerData).pipe(map(res => {
             this.saveToken(res.token)
-        })
+        }))
     }    
     loginUser(loginData) {
-        this.http.post<any>(this.path + '/login', loginData).subscribe(res => {
+
+        return this.http.post<any>(this.path + '/login', loginData).pipe(map(res=>{
             this.saveToken(res.token)
-        })
+        }))
+        
     }
     saveToken(token){
         localStorage.setItem(this.TOKEN_KEY, token)
