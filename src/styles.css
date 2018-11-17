@@ -1,2 +1,32 @@
-/* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+ 
+div.container {
+    text-align: center;
+    margin-bottom:  20px;
+    text-align: center;
+}
+div.containerLeft {
+    margin: 5% 13% 5% 13%; 
+    text-align: left;
+    /* position: fixed; */
+}
+div.containerRight {
+    margin: 5% 13% 5% 13%; 
+    text-align: right;
+}
+.left-element {
+    margin: 5% 8% 5% -55%;
+    text-align: left;
+    display: inline-block;
+    position: absolute;
+}
+.right-element {
+    margin: 2% 8% 5% 5%;
+    text-align: left;
+    display: inline-block;
+    position: absolute;
+}
+h1 {
+    color: #696969;
+    font-family: 'Times New Roman', Times, serif;
+}

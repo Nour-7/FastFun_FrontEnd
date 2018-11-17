@@ -6,7 +6,7 @@ import { AuthService } from './auth.service';
   selector: 'app-root',
   template: `
   <mat-toolbar>
-  <button mat-button routerLink="/">PSSocial</button>
+  <button mat-button routerLink="/">Fast Fun</button>
   <button mat-button routerLink="/users">Users</button>
   <span style="flex: 1 1 auto"></span>
   <button mat-button *ngIf="!authService.isAuthenticated" routerLink="/register">Register</button>

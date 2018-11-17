@@ -1,0 +1,41 @@
+<br>
+<ngb-carousel *ngIf="images">
+    <ng-template ngbSlide>
+      <img class="mainImg" [src]="images[0]" alt="Random first slide" style="width:100%; height:500px">
+      <div class="carousel-caption">
+        <h3>First slide label</h3>
+        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <img class="mainImg" [src]="images[1]" alt="Random second slide" style="width:100%; height:500px">
+      <div class="carousel-caption">
+        <h3>Second slide label</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <img class="mainImg" [src]="images[2]" alt="Random third slide" style="width:100%; height:500px">
+      <div class="carousel-caption">
+        <h3>Third slide label</h3>
+        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+      </div>
+    </ng-template>
+  </ngb-carousel>
+  <br>
+  <div class="container"> 
+      <header><h3>Brief Note about <strong>Fast Fun</strong></h3></header>
+        Fast Fun is an intertainment website, Recommend place, restaurants, tour.
+        <br> Let's have a tour with us...
+  </div>
+  <br>
+  <div class="containerLeft">      
+    <img [src]="images[1]" class="rounded-circle" alt="img" width="236" height="236"> 
+    <div class="right-element"><h2>The First Title</h2>This is the First photo</div>
+  </div>
+ 
+  <div class="containerRight">
+      <div class="left-element"> <h2>The Second Title</h2>This is the Second photo</div>
+      <img [src]="images[2]" class="rounded-circle" alt="img" width="236" height="236">
+  </div>
+
