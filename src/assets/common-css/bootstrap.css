@@ -124,9 +124,9 @@ audio:not([controls]) {
   height: 0;
 }
 
-/* img {
+img {
   border-style: none;
-} */
+}
 
 svg:not(:root) {
   overflow: hidden;
