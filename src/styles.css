@@ -30,3 +30,14 @@ h1 {
     color: #696969;
     font-family: 'Times New Roman', Times, serif;
 }
+.star {
+    font-size: 1.5rem;
+    color: #d3d3d3;
+}
+.filled {
+    color: #c5b908;
+}
+img.rounded-circle {
+    width: 236;
+    height: 236;
+}

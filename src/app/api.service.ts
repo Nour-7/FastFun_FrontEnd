@@ -29,4 +29,8 @@ export class ApiService {
     getProfile(id) {
         return this.http.get(this.path + '/profile/' + id)
     }
+
+    getItem(id) {
+        return this.http.get(this.path + '/item/' + id)
+    }
 }
