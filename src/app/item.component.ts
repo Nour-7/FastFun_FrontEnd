@@ -8,18 +8,16 @@ import { ActivatedRoute} from '@angular/router'
 export class ItemComponent {
     item
     images = [1, 2, 3].map(() => `https://picsum.photos/900/500?random&t=${Math.random()}`);
-    postMsg = ''
+    //pname = "Mince"
+    pInfo:any = null
+
     constructor(private apiService: ApiService, private route: ActivatedRoute)  { }
     ngOnInit(){
-        var id =this.route.snapshot.params.id
+        this.route.params.subscribe(paramMap=> {
+            this.apiService.getPlaceInfo(paramMap.pname).subscribe(res =>{
+                this.pInfo = res
+            });
         
-        this.apiService.getItem(id).subscribe(data =>{
-           this.item = data
-        })
-        
+        });
     }
-    // post() {
-    //     this.apiService.postMessage({msg: this.postMsg})
-    // }
-   
 }

@@ -35,7 +35,7 @@ const routes = [
   { path : 'login', component : LoginComponent },
   { path : 'users', component : UsersComponent },
   { path : 'profile/:id', component : ProfileComponent },
-  { path : 'item/:id', component : ItemComponent }
+  { path : 'item/:pname', component : ItemComponent }
 ]
  
 @NgModule({
