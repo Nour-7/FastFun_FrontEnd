@@ -19,18 +19,20 @@
         </div><!-- container -->
     </section><!-- intro-section -->
     <mat-card *ngIf="pInfo">
-        <ngb-tabset>
-            <ngb-tab title="Info"  >
-                <ng-template ngbTabContent>
-                    <mat-card-content> 
-                            <mat-list>
-                                <mat-list-item>Name: {{pInfo.name}}</mat-list-item>
-                                <mat-list-item>Category: {{pInfo.category}}</mat-list-item>
-                                <mat-list-item>Location: {{pInfo.lat}} {{pInfo.mag}} </mat-list-item>
-                            </mat-list>
-                    </mat-card-content>
-                </ng-template>
-            </ngb-tab>
+        <div class = "tabs" style = "width: 60%">
+            <ngb-tabset>
+                <ngb-tab title="Info"  >
+                    <ng-template ngbTabContent>
+                        <mat-card-content> 
+                                <mat-list>
+                                    <mat-list-item>Name: {{pInfo.name}}</mat-list-item>
+                                    <mat-list-item>Category: {{pInfo.category}}</mat-list-item>
+                                    <mat-list-item>Location: {{pInfo.lat}} {{pInfo.mag}} </mat-list-item>
+                                </mat-list>
+                        </mat-card-content>
+                    </ng-template>
+                </ngb-tab>
            </ngb-tabset>
+        </div>
     </mat-card>
 <div *ngIf="!pInfo"> loading ... </div>
