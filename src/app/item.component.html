@@ -6,9 +6,9 @@
                 <div class="col-md-1 col-lg-2"></div>
                 <div class="col-md-10 col-lg-8">
                     <div class="intro">
-                        <div class="profile-img"><img [src]="images[1]" alt=""></div>
-                        <h2><b>Restaurant </b></h2>
-                        <h4 class="font-yellow">{{pInfo.name}}</h4>
+                        <div class="profile-img"><img src= {{pInfo.img}} /></div>
+                        <h2><b>{{pInfo.name}}</b></h2>
+                        <h4 class="font-yellow">{{pInfo.category}}</h4>
                         <ng-template #t let-fill="fill" let-index="index">
                                 <span class="star" [class.filled]="fill === 100">&#9733;</span>
                         </ng-template>
