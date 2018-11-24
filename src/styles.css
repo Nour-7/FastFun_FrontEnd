@@ -41,3 +41,9 @@ img.rounded-circle {
     width: 236;
     height: 236;
 }
+
+.tabs {
+    margin: 2% 20% 5% 20%;
+    align-content: center;
+    text-align: center;
+}

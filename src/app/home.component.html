@@ -54,72 +54,21 @@
 				</div>
 			</div>
 			<div class="feature-inner row">
-				<div class="col-lg-4 col-md-6">
-					<div class="feature-item">
-						<i class="ti-crown"></i>
-						<h4>Architecture</h4>
-						<div class="wow fadeIn" data-wow-duration="1s" data-wow-delay=".1s">
-							<p>
-								Lorem ipsum dolor sit amet consec tetur adipisicing elit, sed do eiusmod tempor incididunt labore.
-							</p>
+					
+				
+				<div *ngFor="let cat of categories" class="col-lg-4 col-md-6">
+						<div class="feature-item">
+							<i class="ti-crown"></i>
+							<h4>{{cat.name}}</h4>
+							<div class="wow fadeIn" data-wow-duration="1s" data-wow-delay=".1s">
+								<p>
+									Lorem ipsum dolor sit amet consec tetur adipisicing elit, sed do eiusmod tempor incididunt labore.
+								</p>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="feature-item">
-						<i class="ti-briefcase"></i>
-						<h4>Interior Design</h4>
-						<div class="wow fadeIn" data-wow-duration="1s" data-wow-delay=".3s">
-							<p>
-								Lorem ipsum dolor sit amet consec tetur adipisicing elit, sed do eiusmod tempor incididunt labore.
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="feature-item">
-						<i class="ti-medall-alt"></i>
-						<h4>Concept Design</h4>
-						<div class="wow fadeIn" data-wow-duration="1s" data-wow-delay=".5s">
-							<p>
-								Lorem ipsum dolor sit amet consec tetur adipisicing elit, sed do eiusmod tempor incididunt labore.
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="feature-item">
-						<i class="ti-key"></i>
-						<h4>Lifetime Access</h4>
-						<div class="wow fadeIn" data-wow-duration="1s" data-wow-delay=".1s">
-							<p>
-								Lorem ipsum dolor sit amet consec tetur adipisicing elit, sed do eiusmod tempor incididunt labore.
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="feature-item">
-						<i class="ti-files"></i>
-						<h4>Source File Included</h4>
-						<div class="wow fadeIn" data-wow-duration="1s" data-wow-delay=".3s">
-							<p>
-								Lorem ipsum dolor sit amet consec tetur adipisicing elit, sed do eiusmod tempor incididunt labore.
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="feature-item">
-						<i class="ti-headphone-alt"></i>
-						<h4>Live Support</h4>
-						<div class="wow fadeIn" data-wow-duration="1s" data-wow-delay=".5s">
-							<p>
-								Lorem ipsum dolor sit amet consec tetur adipisicing elit, sed do eiusmod tempor incididunt labore.
-							</p>
-						</div>
-					</div>
-				</div>
+				
+				
 			</div>
 		</div>
 	</section>

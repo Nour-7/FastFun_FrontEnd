@@ -1,13 +1,14 @@
-<body>
-    <section class="intro-section">
+<link href="assets/01-cv-portfolio/css/styles.css" rel="stylesheet">
+<link href="assets/01-cv-portfolio/css/responsive.css" rel="stylesheet">
+    <section class="intro-section" *ngIf="pInfo">
         <div class="container">
             <div class="row">
                 <div class="col-md-1 col-lg-2"></div>
                 <div class="col-md-10 col-lg-8">
                     <div class="intro">
-                        <div class="profile-img"><img [src]="images[1]" alt=""></div>
-                        <h2><b>Restaurant Name</b></h2>
-                        <h4 class="font-yellow">Key Account Manager</h4>
+                        <div class="profile-img"><img src= {{pInfo.img}} /></div>
+                        <h2><b>{{pInfo.name}}</b></h2>
+                        <h4 class="font-yellow">{{pInfo.category}}</h4>
                         <ng-template #t let-fill="fill" let-index="index">
                                 <span class="star" [class.filled]="fill === 100">&#9733;</span>
                         </ng-template>
@@ -17,50 +18,21 @@
             </div><!-- row -->
         </div><!-- container -->
     </section><!-- intro-section -->
-    <mat-card>
-        <ngb-tabset>
-            <ngb-tab title="Info">
-                <ng-template ngbTabContent>
-                    <mat-card-content> 
-                            <mat-list>
-                                <mat-list-item>Name: {{profile?.name}}</mat-list-item>
-                                <mat-list-item>Email: {{profile?.email}}</mat-list-item>
-                                <mat-list-item>Description: {{profile?.description}}</mat-list-item>
-                            </mat-list>
-                    </mat-card-content>
-                </ng-template>
-            </ngb-tab>
-            <ngb-tab title="Review">
-                <ng-template ngbTabContent>
-                    <mat-card>
-                            <mat-card-header>
-                                <mat-card-title>
-                                    <h4>Posts</h4>
-                                </mat-card-title> 
-                            </mat-card-header>
-                            <mat-card-content> 
-                                <messages></messages>
-                            </mat-card-content>
-                        </mat-card>
-                        <mat-card>
-                            <mat-card-header>
-                                <mat-card-title>
-                                <h4>New Post</h4>
-                                </mat-card-title>
-                            </mat-card-header>
-                        
-                            <mat-card-content>
-                                <form>
-                                    <mat-form-field style="width: 100%">
-                                        <textarea [(ngModel)]="postMsg" name="description" matInput placeholder="Post Message" ></textarea>
-                                    </mat-form-field>
-                                    <br/>
-                                    <button (click)="post()" mat-raised-button color="primary">Post</button>
-                                </form>
-                            </mat-card-content>
-                        </mat-card>
-                </ng-template>
-            </ngb-tab>
-        </ngb-tabset>
+    <mat-card *ngIf="pInfo">
+        <div class = "tabs" style = "width: 60%">
+            <ngb-tabset>
+                <ngb-tab title="Info"  >
+                    <ng-template ngbTabContent>
+                        <mat-card-content> 
+                                <mat-list>
+                                    <mat-list-item>Name: {{pInfo.name}}</mat-list-item>
+                                    <mat-list-item>Category: {{pInfo.category}}</mat-list-item>
+                                    <mat-list-item>Location: {{pInfo.lat}} {{pInfo.mag}} </mat-list-item>
+                                </mat-list>
+                        </mat-card-content>
+                    </ng-template>
+                </ngb-tab>
+           </ngb-tabset>
+        </div>
     </mat-card>
-</body>
+<div *ngIf="!pInfo"> loading ... </div>
