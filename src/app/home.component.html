@@ -70,10 +70,19 @@
 				</div>
 				
       </div>
+
+      <!-- <mat-radio-group class="example-radio-group" [(ngModel)]="name">
+        <mat-radio-button class="example-radio-button" *ngFor="let place of placesByCat" [value]="place.name">
+          {{place.name}}
+        </mat-radio-button>
+      
+      </mat-radio-group>
+      <div class="example-selected-value">Your favorite season is: {{name}}</div>
+      
+
       <div class="feature-inner row">
-					
-				
-				<div *ngFor="let place of places | filter:['Restaurants', 'Any']" class="col-lg-4 col-md-6">
+						
+				<div *ngFor="let place of placesByCat | filter:[cat, name]" class="col-lg-4 col-md-6">
 						<div class="feature-item">
 							<i class="ti-crown"></i>
 							<h4>{{place.name}}</h4>
@@ -85,7 +94,7 @@
 						</div>
 				</div>
 				
-			</div>
+			</div> -->
 		</div>
   </section>
   

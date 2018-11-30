@@ -8,7 +8,8 @@ import {
   MatButtonModule,
   MatInputModule, 
   MatListModule,
-  MatFormFieldModule
+  MatFormFieldModule,
+  MatRadioModule
   } from '@angular/material'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import { FormsModule } from '@angular/forms'
@@ -65,7 +66,8 @@ const routes = [
     MatInputModule,
     MatListModule,
     BrowserAnimationsModule,
-    NgbModule
+    NgbModule,
+    MatRadioModule
   ],
   providers: [ApiService, AuthService, {
     provide: HTTP_INTERCEPTORS,

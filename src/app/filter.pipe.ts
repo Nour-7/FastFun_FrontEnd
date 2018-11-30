@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class FilterPipe implements PipeTransform {
   transform(items: any, term?: any): any {
-    if (items === undefined || (term[0] == 'All' && term[1] == 'Any')) return items;
+    if (items === undefined || term === undefined || (term[0] == 'All' && term[1] == 'Any')) return items;
 
     if (term[0] == 'All') {
       return items.filter(function(item){
@@ -20,7 +20,7 @@ export class FilterPipe implements PipeTransform {
     }
 
     return items.filter(function(item){
-      return item.name.toLowerCase().includes(term[0].toLowerCase()) && item.name.toLowerCase().includes(term[0].toLowerCase());
+      return item.name.toLowerCase().includes(term[1].toLowerCase());
     })
   }
 
