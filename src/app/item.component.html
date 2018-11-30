@@ -1,6 +1,6 @@
 <link href="assets/01-cv-portfolio/css/styles.css" rel="stylesheet">
 <link href="assets/01-cv-portfolio/css/responsive.css" rel="stylesheet">
-    <section class="intro-section" *ngIf="pInfo">
+<section class="intro-section" *ngIf="pInfo">
         <div class="container">
             <div class="row">
                 <div class="col-md-1 col-lg-2"></div>
@@ -19,6 +19,7 @@
         </div><!-- container -->
     </section><!-- intro-section -->
     <mat-card *ngIf="pInfo">
+        <div>
         <div class = "tabs" style = "width: 60%">
             <ngb-tabset>
                 <ngb-tab title="Info"  >
@@ -29,10 +30,16 @@
                                     <mat-list-item>Category: {{pInfo.category}}</mat-list-item>
                                     <mat-list-item>Location: {{pInfo.lat}} {{pInfo.mag}} </mat-list-item>
                                 </mat-list>
+                                <map lat = "pInfo.lat" long = "pInfo.mag" ></map>
                         </mat-card-content>
+                        
                     </ng-template>
                 </ngb-tab>
            </ngb-tabset>
         </div>
+    </div>
     </mat-card>
-<div *ngIf="!pInfo"> loading ... </div>
+    
+   
+   
+

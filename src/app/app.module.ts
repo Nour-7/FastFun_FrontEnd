@@ -27,6 +27,7 @@ import { PostComponent } from './post.component'
 import { AuthInterceptorService }  from './authInterceptor.service'
 import { HomeComponent } from './home.component';
 import { ItemComponent } from './item.component';
+import { ImapComponent } from './itemmap.component';
  
 const routes = [
   { path : '', component : HomeComponent },
@@ -48,7 +49,8 @@ const routes = [
     ProfileComponent,
     PostComponent,
     HomeComponent,
-    ItemComponent
+    ItemComponent,
+    ImapComponent,
   ],
   imports: [
     BrowserModule,
