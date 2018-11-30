@@ -29,6 +29,7 @@ import { AuthInterceptorService }  from './authInterceptor.service'
 import { HomeComponent } from './home.component';
 import { ItemComponent } from './item.component';
 import { FilterPipe } from './filter.pipe';
+import { UniquePipe } from './unique.pipe';
  
 const routes = [
   { path : '', component : HomeComponent },
@@ -51,7 +52,8 @@ const routes = [
     PostComponent,
     HomeComponent,
     ItemComponent,
-    FilterPipe
+    FilterPipe,
+    UniquePipe
   ],
   imports: [
     BrowserModule,

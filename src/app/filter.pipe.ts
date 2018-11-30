@@ -20,7 +20,7 @@ export class FilterPipe implements PipeTransform {
     }
 
     return items.filter(function(item){
-      return item.name.toLowerCase().includes(term[1].toLowerCase());
+      return item.Location.toLowerCase().includes(term[1].toLowerCase());
     })
   }
 
