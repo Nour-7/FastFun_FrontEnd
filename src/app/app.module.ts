@@ -27,7 +27,8 @@ import { PostComponent } from './post.component'
 import { AuthInterceptorService }  from './authInterceptor.service'
 import { HomeComponent } from './home.component';
 import { ItemComponent } from './item.component';
-import { CategoryComponent} from './category.component'; 
+import { CategoryComponent} from './category.component';
+import { FilterPipe } from './filter.pipe'; 
 const routes = [
   { path : '', component : HomeComponent },
   { path : 'post', component : PostComponent},
@@ -50,7 +51,8 @@ const routes = [
     PostComponent,
     HomeComponent,
     ItemComponent,
-    CategoryComponent
+    CategoryComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
