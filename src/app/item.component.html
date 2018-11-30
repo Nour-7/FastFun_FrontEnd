@@ -28,9 +28,8 @@
                                 <mat-list>
                                     <mat-list-item>Name: {{pInfo.name}}</mat-list-item>
                                     <mat-list-item>Category: {{pInfo.category}}</mat-list-item>
-                                    <mat-list-item>Location: {{pInfo.lat}} {{pInfo.mag}} </mat-list-item>
                                 </mat-list>
-                                <map lat = "pInfo.lat" long = "pInfo.mag" ></map>
+                                <map lat = {{plat}} long = {{plong}} ></map>
                         </mat-card-content>
                         
                     </ng-template>
