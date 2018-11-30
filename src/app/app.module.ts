@@ -54,6 +54,7 @@ const routes = [
     HomeComponent,
     ItemComponent,
     ImapComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,
