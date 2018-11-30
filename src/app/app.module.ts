@@ -27,7 +27,7 @@ import { PostComponent } from './post.component'
 import { AuthInterceptorService }  from './authInterceptor.service'
 import { HomeComponent } from './home.component';
 import { ItemComponent } from './item.component';
-import { ImapComponent } from './itemmap.component';
+import { ImapComponent } from './imap.component';
  
 const routes = [
   { path : '', component : HomeComponent },
