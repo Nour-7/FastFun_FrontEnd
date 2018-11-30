@@ -9,14 +9,21 @@ export class CategoryComponent {
     category
     //cname = "cafees"
     cInfo:any = null
+    places = []
+    cat = ''
+    location = 'Any'
+    placesByCat = []
 
     constructor(private apiService: ApiService, private route: ActivatedRoute)  { }
     ngOnInit(){
         this.route.params.subscribe(paramMap=> {
-            this.apiService.getPlaceInfo(paramMap.cname).subscribe(res =>{
-                this.cInfo = res
-            });
-        
+            this.cat = paramMap.cname
+        });
+        this.apiService.getPlaces().subscribe(res =>{
+          this.places = res
+        });
+        this.apiService.getPlacesByCategory(this.cat).subscribe(res =>{
+            this.placesByCat = res
         });
     }
 }
