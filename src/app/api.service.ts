@@ -42,6 +42,10 @@ export class ApiService {
         return this.http.get<any>(this.path + '/places');
     }
 
+    getPlacesByCategory(name) {
+        return this.http.get<any>(this.path + '/category/' + name);
+    }
+
     getCategories() {
         return this.http.get<any>(this.path + '/category');
     }
