@@ -28,18 +28,9 @@ import { PostComponent } from './post.component'
 import { AuthInterceptorService } from './authInterceptor.service'
 import { HomeComponent } from './home.component';
 import { ItemComponent } from './item.component';
-<<<<<<< HEAD
-
-import { FilterPipe } from './filter.pipe';
-import { UniquePipe } from './unique.pipe';
-
-
 import { CategoryComponent } from './category.component';
-
-=======
 import { ImapComponent } from './imap.component';
  
->>>>>>> nour
 const routes = [
   { path: '', component: HomeComponent },
   { path: 'post', component: PostComponent },
@@ -62,16 +53,7 @@ const routes = [
     PostComponent,
     HomeComponent,
     ItemComponent,
-<<<<<<< HEAD
-
-    FilterPipe,
-    UniquePipe,
-
-    CategoryComponent
-
-=======
     ImapComponent,
->>>>>>> nour
   ],
   imports: [
     BrowserModule,
