@@ -22,7 +22,7 @@ export class ImapComponent {
             noWrap: true
         }).addTo(mymap);
 
-
+        var marker = L.marker([this.lat, this.long]).addTo(mymap);
         
     }
 }
