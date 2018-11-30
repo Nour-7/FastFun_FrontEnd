@@ -34,12 +34,15 @@ export class ApiService {
     getItem(id) {
         return this.http.get(this.path + '/item/' + id)
     }
-    getPlaceInfo(pName) {
-        
+    getPlaceInfo(pName) { 
         return this.http.get(this.path + '/place/' + pName);
     }
+
+    getPlaces() {
+        return this.http.get<any>(this.path + '/places');
+    }
+
     getCategories() {
-        
         return this.http.get<any>(this.path + '/category');
     }
    
