@@ -57,10 +57,8 @@ const routes = [
     PostComponent,
     HomeComponent,
     ItemComponent,
-
     FilterPipe,
     UniquePipe,
-
     CategoryComponent
 
   ],
