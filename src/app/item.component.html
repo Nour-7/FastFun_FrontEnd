@@ -26,10 +26,10 @@
                     <ng-template ngbTabContent>
                         <mat-card-content> 
                                 <mat-list>
+                                     <map lat = {{pInfo.lat}} long = {{pInfo.mag}} ></map>
                                     <mat-list-item>Name: {{pInfo.name}}</mat-list-item>
                                     <mat-list-item>Category: {{pInfo.category}}</mat-list-item>
                                 </mat-list>
-                                <map lat = {{pInfo.lat}} long = {{pInfo.mag}} ></map>
                         </mat-card-content>
                         
                     </ng-template>

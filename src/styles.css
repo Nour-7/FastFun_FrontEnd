@@ -47,6 +47,7 @@ img.rounded-circle {
     align-content: center;
     text-align: center;
 }
-#mapid { height: 280px;
-        width: 280px;
+#mapid { height: 480px;
+        width: 720px;
         align-items: center ;}
+

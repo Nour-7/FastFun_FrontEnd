@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component ,Input } from '@angular/core';
 import { ApiService } from './api.service';
 import { ActivatedRoute} from '@angular/router'
 
@@ -11,11 +11,11 @@ export class CategoryComponent {
     //cname = "cafees"
     cInfo:any = null
     categories = []
-    places = []
+    places :string []= []
     cat = ''
     location = 'Any'
-    name = ''
-    placesByCat = []
+    @Input() name: string= '';
+    placesByCat  :string []= []
 
     constructor(private apiService: ApiService, private route: ActivatedRoute)  { }
     ngOnInit() {

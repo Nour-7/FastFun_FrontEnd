@@ -30,6 +30,7 @@ import { HomeComponent } from './home.component';
 import { ItemComponent } from './item.component';
 import { CategoryComponent } from './category.component';
 import { ImapComponent } from './imap.component';
+import {MatSelectModule} from '@angular/material/select';
  
 import { FilterPipe } from './filter.pipe';
 import { UniquePipe } from './unique.pipe';
@@ -79,7 +80,8 @@ const routes = [
     MatListModule,
     BrowserAnimationsModule,
     NgbModule,
-    MatRadioModule
+    MatRadioModule,
+    MatSelectModule
   ],
   providers: [ApiService, AuthService, {
     provide: HTTP_INTERCEPTORS,
