@@ -28,12 +28,10 @@ import { PostComponent } from './post.component'
 import { AuthInterceptorService } from './authInterceptor.service'
 import { HomeComponent } from './home.component';
 import { ItemComponent } from './item.component';
-
 import { FilterPipe } from './filter.pipe';
 import { UniquePipe } from './unique.pipe';
-
-
 import { CategoryComponent } from './category.component';
+import { SearchPipe } from './search.pipe';
 
 const routes = [
   { path: '', component: HomeComponent },
@@ -59,7 +57,8 @@ const routes = [
     ItemComponent,
     FilterPipe,
     UniquePipe,
-    CategoryComponent
+    CategoryComponent,
+    SearchPipe
 
   ],
   imports: [
