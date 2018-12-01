@@ -30,7 +30,7 @@ export class CategoryComponent {
         this.apiService.getPlaces().subscribe(res =>{
             this.places = res
         });
-
+        
         this.apiService.getPlacesByCategory(this.cat).subscribe(res =>{
             this.placesByCat = res
         });
