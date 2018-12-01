@@ -9,7 +9,7 @@ export class FilterPipe implements PipeTransform {
 
     if (term[0] == 'All') {
       return items.filter(function(item){
-         return item.name.toLowerCase().includes(term[1].toLowerCase());
+         return item.Location.toLowerCase().includes(term[1].toLowerCase());
       })
     }
 
@@ -19,8 +19,10 @@ export class FilterPipe implements PipeTransform {
       })
     }
 
-    return items.filter(function(item){
-      return item.Location.toLowerCase().includes(term[1].toLowerCase());
+    return items.filter(function(item) {
+      return item.category.toLowerCase().includes(term[0].toLowerCase()) &&
+             item.Location.toLowerCase().includes(term[1].toLowerCase());
+            //  item.name.toLowerCase().includes(term[2].toLowerCase());
     })
   }
 

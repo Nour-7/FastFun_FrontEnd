@@ -31,6 +31,10 @@ import { ItemComponent } from './item.component';
 import { CategoryComponent } from './category.component';
 import { ImapComponent } from './imap.component';
  
+import { FilterPipe } from './filter.pipe';
+import { UniquePipe } from './unique.pipe';
+import { SearchPipe } from './search.pipe';
+
 const routes = [
   { path: '', component: HomeComponent },
   { path: 'post', component: PostComponent },
@@ -54,7 +58,12 @@ const routes = [
     HomeComponent,
     ItemComponent,
     ImapComponent,
-    CategoryComponent
+    CategoryComponent,
+    FilterPipe,
+    UniquePipe,
+    CategoryComponent,
+    SearchPipe
+
   ],
   imports: [
     BrowserModule,

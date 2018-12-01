@@ -25,52 +25,155 @@
         <link rel="stylesheet" href="cssItem/style.css">
       </head>
 
+<!------<div class="hero-wrap js-fullheight" style="background-image: url('Costa.png');">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center"
+            data-scrollax-parent="true">
+            <div class="col-md-9 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
+                <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a
+                            href="index.html">Home</a></span> <span>Tour</span></p>
+                <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Destination</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="ftco-section ftco-degree-bg">
+    <div class="container">
+<section class="ftco-section ftco-degree-bg" >
+    <div *ngFor="let place of placesByCat | filter:[cat, location]"class="container" >
+        <div class="row">
+            <div class="col-lg-3 sidebar ftco-animate">
+                <div class="sidebar-wrap bg-light ftco-animate">
+                    <h3 class="heading mb-4">Find City</h3>
+                    <form action="#">
+                        <div class="fields">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Destination, City">
+                            </div>
+                            <div class="form-group">
+                                <div class="select-wrap one-third">
+                                    <select name="" id="" class="form-control" placeholder="Keyword search">
+                                        <option value="">Select Location</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                    <input type="submit" value="Search" class="btn btn-primary py-3 px-5">
+                                  </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-sm col-md-6 col-lg ftco-animate">
+                <div class="destination">
+                    <a href="#" class="img img-2 d-flex justify-content-center align-items-center" height="265" width="265"
+                        style="background-image: url(Costa.png);">
+                        <div class="icon d-flex justify-content-center align-items-center">
+                            <span class="icon-search2"></span>
+                        </div>
+                    </a>
+                    <div class="text p-3">
+                        <div class="d-flex">
+                            <div class="one">
+                                <h3><a href="#"> {{place.name}} </a></h3>
+                                <p class="rate">
+                                    <i class="icon-star"></i>
+                                    <i class="icon-star"></i>
+                                    <i class="icon-star"></i>
+                                    <i class="icon-star"></i>
+                                    <i class="icon-star-o"></i>
+                                    <span>8 Rating</span>
+                                </p>
+                            </div>
+                        </div>
+                        <p>{{place.discripe}}</p>
+                        <hr>
+                        <p class="bottom-area d-flex">
+                            <span><i class="icon-map-o"></i> {{place.Location}}</span>
+                            <span class="ml-auto"><a href="#">Discover</a></span>
+                        </p>
+                    </div>
+                </div>
+            </div>--> 
+
+<!-- <form>
+    <input type="text" class="form-control" [(ngModel)]="name" placeholder="Search"/>
+</form> -->
+
+<mat-radio-group class="example-radio-group" [(ngModel)]="location">
+    <mat-radio-button class="example-radio-button" [value]="'Any'">
+        Any
+    </mat-radio-button>
+    <mat-radio-button class="example-radio-button" *ngFor="let place of placesByCat | unique" [value]="place.Location">
+        {{place.Location}}
+    </mat-radio-button>
+</mat-radio-group>
+<br>
+
 <div class="container">
         <div class="row">
         	<div class="col-lg-3 sidebar ftco-animate fadeInUp ftco-animated">
         		<div class="sidebar-wrap bg-light ftco-animate fadeInUp ftco-animated">
-        			<h3 class="heading mb-4">Find City</h3>
+        			<h3 class="heading mb-4">Filter</h3>
         			<form action="#">
         				<div class="fields">
 		              <div class="form-group">
-		                <input type="text" class="form-control" placeholder="Destination, City">
+		                <input type="text" [(ngModel)]="name"class="form-control" placeholder="Search">
 		              </div>
 		              <div class="form-group">
 		                <div class="select-wrap one-third">
 	                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-	                    <select name="" id="" class="form-control" placeholder="Keyword search ">
-	                      <option value="">Select Location</option>
-	                      <option value="">San Francisco USA</option>
-	                      <option value="">Berlin Germany</option>
-	                      <option value="">Lodon United Kingdom</option>
-	                      <option value="">Paris Italy</option>
-	                    </select>
+	                    <select name="" id="" class="form-control"  [(ngModel)]="location" placeholder="City">
+	                      <option *ngFor="let place of placesByCat | unique" [value]="place.Location">{{place.Location}}</option>
+                        </select>
+                        <!-- <mat-radio-group class="example-radio-group" [(ngModel)]="location">
+                                <mat-radio-button class="example-radio-button" [value]="'Any'">
+                                    Any
+                                </mat-radio-button>
+                                <mat-radio-button class="example-radio-button" *ngFor="let place of placesByCat | unique" [value]="place.Location">
+                                    {{place.Location}}
+                                </mat-radio-button>
+                        </mat-radio-group> -->
+                      </div>
+                      </div>
+                      <!-- <div class="form-group">
+		                <div class="select-wrap one-third">
+	                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+	                    <select [(ngModel)]="cat" name="" id="" class="form-control" placeholder="Category">
+	                      <option *ngFor="let category of categories" [value]="category.name">{{category.name}}</option>
+                        </select>
 	                  </div>
-		              </div>
-		              <div class="form-group">
+                      </div> -->
+                      <!-- <p>THe location is {{location}}</p>
+                      <p>THe Category is {{cat}}</p>
+                      <p>THe Name is {{name}}</p> -->
+		              <!-- <div class="form-group">
 		                <input type="text" id="checkin_date" class="form-control" placeholder="Date from">
 		              </div>
 		              <div class="form-group">
 		                <input type="text" id="checkin_date" class="form-control" placeholder="Date to">
-		              </div>
-		              <div class="form-group">
+		              </div> -->
+		              <!-- <div class="form-group">
 		              	<div class="range-slider">
 		              		<span>
-										    <input type="number" value="25000" min="0" max="120000">	-
-										    <input type="number" value="50000" min="0" max="120000">
-										  </span>
-										  <input value="1000" min="0" max="120000" step="500" type="range">
-										  <input value="50000" min="0" max="120000" step="500" type="range">
+							    <input type="number" value="25000" min="0" max="120000">	-
+								<input type="number" value="50000" min="0" max="120000">
+							</span>
+							    <input value="1000" min="0" max="120000" step="500" type="range">
+								<input value="50000" min="0" max="120000" step="500" type="range">
 										  
-										</div>
-		              </div>
-		              <div class="form-group">
-		                <input type="submit" value="Search" class="btn btn-primary py-3 px-5">
-		              </div>
-		            </div>
+						/div>
+		              </div>-->
+		              <!-- <div class="form-group">
+		                <input type="submit" [(ngModel)]="name" value="Search" class="btn btn-primary py-3 px-5">
+		              </div> -->
+		            </div> 
 	            </form>
         		</div>
-        		<div class="sidebar-wrap bg-light ftco-animate fadeInUp ftco-animated">
+        		<!-- <div class="sidebar-wrap bg-light ftco-animate fadeInUp ftco-animated">
         			<h3 class="heading mb-4">Star Rating</h3>
         			<form method="post" class="star-rating">
 							  <div class="form-check">
@@ -104,13 +207,13 @@
 							    </label>
 							  </div>
 							</form>
-        		</div>
+        		</div> -->
           </div>
           <div class="col-lg-9">
           	<div class="row">
-          		<div class="col-md-4 ftco-animate fadeInUp ftco-animated">
+          		<div *ngFor="let place of placesByCat | filter:[cat, location]" class="col-md-4 ftco-animate fadeInUp ftco-animated">
 		    				<div class="destination">
-		    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/destination-1.jpg);">
+		    					<a href="././item/{{place.name}}" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url({place.img});">
 		    						<div class="icon d-flex justify-content-center align-items-center">
     							<span class="icon-search2"></span>
     						</div>
@@ -118,31 +221,35 @@
 		    					<div class="text p-3">
 		    						<div class="d-flex">
 		    							<div class="one">
-				    						<h3><a href="#">Paris, Italy</a></h3>
+				    						<h3><a href="#">{{place.name}}</a></h3>
 				    						<p class="rate">
+				    							<!-- <i class="icon-star"></i>
 				    							<i class="icon-star"></i>
 				    							<i class="icon-star"></i>
 				    							<i class="icon-star"></i>
-				    							<i class="icon-star"></i>
-				    							<i class="icon-star-o"></i>
+				    							<i class="icon-star-o"></i> -->
 				    							<span>8 Rating</span>
-				    						</p>
+											</p>
+											<ng-template #t let-fill="fill" let-index="index">
+												<span class="star" [class.filled]="fill === 100">&#9733;</span>
+											</ng-template>
+											<ngb-rating [(rate)]="currentRate" [starTemplate]="t" max="5"></ngb-rating>
 			    						</div>
 			    						<div class="two">
-			    							<span class="price">$200</span>
+			    							<!-- <span class="price">$200</span> -->
 		    							</div>
 		    						</div>
-		    						<p>Far far away, behind the word mountains, far from the countries</p>
-		    						<p class="days"><span>2 days 3 nights</span></p>
+		    						<!-- <p>{{place.discripe}}</p> -->
+		    						<!-- <p class="days"><span>2 days 3 nights</span></p> -->
 		    						<hr>
 		    						<p class="bottom-area d-flex">
-		    							<span><i class="icon-map-o"></i> San Franciso, CA</span> 
-		    							<span class="ml-auto"><a href="#">Discover</a></span>
+		    							<span><i class="icon-map-o"></i> {{place.Location}}</span> 
+		    							<span class="ml-auto"><a href="././item/{{place.name}}">Discover</a></span>
 		    						</p>
 		    					</div>
 		    				</div>
 		    			</div>
-		    			<div class="col-md-4 ftco-animate fadeInUp ftco-animated">
+		    			<!-- <div class="col-md-4 ftco-animate fadeInUp ftco-animated">
 		    				<div class="destination">
 		    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/destination-2.jpg);">
 		    						<div class="icon d-flex justify-content-center align-items-center">
@@ -176,10 +283,144 @@
 		    					</div>
 		    				</div>
 		    			</div>
-		    			
-		    			
+		    			<div class="col-md-4 ftco-animate fadeInUp ftco-animated">
+		    				<div class="destination">
+		    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/destination-3.jpg);">
+		    						<div class="icon d-flex justify-content-center align-items-center">
+    							<span class="icon-search2"></span>
+    						</div>
+		    					</a>
+		    					<div class="text p-3">
+		    						<div class="d-flex">
+		    							<div class="one">
+				    						<h3><a href="#">Paris, Italy</a></h3>
+				    						<p class="rate">
+				    							<i class="icon-star"></i>
+				    							<i class="icon-star"></i>
+				    							<i class="icon-star"></i>
+				    							<i class="icon-star"></i>
+				    							<i class="icon-star-o"></i>
+				    							<span>8 Rating</span>
+				    						</p>
+			    						</div>
+			    						<div class="two">
+			    							<span class="price">$200</span>
+		    							</div>
+		    						</div>
+		    						<p>Far far away, behind the word mountains, far from the countries</p>
+		    						<p class="days"><span>2 days 3 nights</span></p>
+		    						<hr>
+		    						<p class="bottom-area d-flex">
+		    							<span><i class="icon-map-o"></i> San Franciso, CA</span> 
+		    							<span class="ml-auto"><a href="#">Discover</a></span>
+		    						</p>
+		    					</div>
+		    				</div>
+		    			</div>
+		    			<div class="col-md-4 ftco-animate fadeInUp ftco-animated">
+		    				<div class="destination">
+		    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/destination-4.jpg);">
+		    						<div class="icon d-flex justify-content-center align-items-center">
+    							<span class="icon-search2"></span>
+    						</div>
+		    					</a>
+		    					<div class="text p-3">
+		    						<div class="d-flex">
+		    							<div class="one">
+				    						<h3><a href="#">Paris, Italy</a></h3>
+				    						<p class="rate">
+				    							<i class="icon-star"></i>
+				    							<i class="icon-star"></i>
+				    							<i class="icon-star"></i>
+				    							<i class="icon-star"></i>
+				    							<i class="icon-star-o"></i>
+				    							<span>8 Rating</span>
+				    						</p>
+			    						</div>
+			    						<div class="two">
+			    							<span class="price">$200</span>
+		    							</div>
+		    						</div>
+		    						<p>Far far away, behind the word mountains, far from the countries</p>
+		    						<p class="days"><span>2 days 3 nights</span></p>
+		    						<hr>
+		    						<p class="bottom-area d-flex">
+		    							<span><i class="icon-map-o"></i> San Franciso, CA</span> 
+		    							<span class="ml-auto"><a href="#">Discover</a></span>
+		    						</p>
+		    					</div>
+		    				</div>
+		    			</div>
+		    			<div class="col-md-4 ftco-animate fadeInUp ftco-animated">
+		    				<div class="destination">
+		    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/destination-5.jpg);">
+		    						<div class="icon d-flex justify-content-center align-items-center">
+    							<span class="icon-search2"></span>
+    						</div>
+		    					</a>
+		    					<div class="text p-3">
+		    						<div class="d-flex">
+		    							<div class="one">
+				    						<h3><a href="#">Paris, Italy</a></h3>
+				    						<p class="rate">
+				    							<i class="icon-star"></i>
+				    							<i class="icon-star"></i>
+				    							<i class="icon-star"></i>
+				    							<i class="icon-star"></i>
+				    							<i class="icon-star-o"></i>
+				    							<span>8 Rating</span>
+				    						</p>
+			    						</div>
+			    						<div class="two">
+			    							<span class="price">$200</span>
+		    							</div>
+		    						</div>
+		    						<p>Far far away, behind the word mountains, far from the countries</p>
+		    						<p class="days"><span>2 days 3 nights</span></p>
+		    						<hr>
+		    						<p class="bottom-area d-flex">
+		    							<span><i class="icon-map-o"></i> San Franciso, CA</span> 
+		    							<span class="ml-auto"><a href="#">Discover</a></span>
+		    						</p>
+		    					</div>
+		    				</div>
+		    			</div>
+		    			<div class="col-md-4 ftco-animate fadeInUp ftco-animated">
+		    				<div class="destination">
+		    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/destination-6.jpg);">
+		    						<div class="icon d-flex justify-content-center align-items-center">
+    							<span class="icon-search2"></span>
+    						</div>
+		    					</a>
+		    					<div class="text p-3">
+		    						<div class="d-flex">
+		    							<div class="one">
+				    						<h3><a href="#">Paris, Italy</a></h3>
+				    						<p class="rate">
+				    							<i class="icon-star"></i>
+				    							<i class="icon-star"></i>
+				    							<i class="icon-star"></i>
+				    							<i class="icon-star"></i>
+				    							<i class="icon-star-o"></i>
+				    							<span>8 Rating</span>
+				    						</p>
+			    						</div>
+			    						<div class="two">
+			    							<span class="price">$200</span>
+		    							</div>
+		    						</div>
+		    						<p>Far far away, behind the word mountains, far from the countries</p>
+		    						<p class="days"><span>2 days 3 nights</span></p>
+		    						<hr>
+		    						<p class="bottom-area d-flex">
+		    							<span><i class="icon-map-o"></i> San Franciso, CA</span> 
+		    							<span class="ml-auto"><a href="#">Discover</a></span>
+		    						</p>
+		    					</div>
+		    				</div>
+		    			</div> -->
           	</div>
-          	<div class="row mt-5">
+          	<!-- <div class="row mt-5">
 		          <div class="col text-center">
 		            <div class="block-27">
 		              <ul>
@@ -193,7 +434,7 @@
 		              </ul>
 		            </div>
 		          </div>
-		        </div>
+		    </div> -->
           </div> <!-- .col-md-8 -->
         </div>
       </div>
