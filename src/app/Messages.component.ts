@@ -7,11 +7,11 @@ import { ActivatedRoute } from '@angular/router'
     <div *ngFor="let message of apiService.massages" >
             <mat-card>{{message.msg}}</mat-card>
     </div>
-    // <div *ngIf="mess">
-    //     <div *ngFor="let message of mess" >
-    //         <mat-card>message</mat-card>
-    //     </div>
-    // </div>
+    <div *ngIf="mess">
+        <div *ngFor="let message of mess" >
+            <mat-card>message</mat-card>
+        </div>
+    </div>
   `
 
 })
