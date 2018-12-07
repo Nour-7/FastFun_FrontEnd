@@ -35,6 +35,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { FilterPipe } from './filter.pipe';
 import { UniquePipe } from './unique.pipe';
 import { SearchPipe } from './search.pipe';
+import { UploadComponent } from './upload.component';
 
 const routes = [
   { path: '', component: HomeComponent },
@@ -44,7 +45,8 @@ const routes = [
   { path: 'users', component: UsersComponent },
   { path: 'profile/:id', component: ProfileComponent },
   { path: 'item/:pname', component: ItemComponent },
-  { path: 'category/:cname', component: CategoryComponent }
+  { path: 'category/:cname', component: CategoryComponent },
+  { path: 'upload', component: UploadComponent }
 ]
 
 @NgModule({
@@ -63,7 +65,8 @@ const routes = [
     FilterPipe,
     UniquePipe,
     CategoryComponent,
-    SearchPipe
+    SearchPipe,
+    UploadComponent
 
   ],
   imports: [
