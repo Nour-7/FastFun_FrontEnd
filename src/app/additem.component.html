@@ -21,7 +21,15 @@
                     <input [(ngModel)]="itemData.Location" name="Location"  required matInput placeholder="Location">
             </mat-form-field>
             <br/>
+            <mat-form-field>
+                <input [(ngModel)]="itemData.lat" name="lat"  required matInput placeholder="lat">
+            </mat-form-field>
+            <br/>
 
+            <mat-form-field>
+                <input [(ngModel)]="itemData.mag" name="mag"  required matInput placeholder="mag">
+            </mat-form-field>
+            <br/>
 
             <mat-form-field>
                     <input [(ngModel)]="itemData.Tel" name="Teleophone" matInput placeholder="Telephone number">
@@ -44,7 +52,7 @@
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
-        <button type="button" class="btn btn-light" (click)="post()">Submit</button>
+        <a href="http://localhost:3000"class="bnt btn-primary"  role ="button">Next</a>
     </div>
   </ng-template>
   

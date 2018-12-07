@@ -34,8 +34,8 @@ export class MessagesComponent {
             });
 
         });
-        // var userId = this.route.snapshot.params.id
-        
+        // var place = this.route.snapshot.params.pname
+        // this.apiService.getMessages(place);
         this.apiService.getMessages(this.placeData.name);
     
     }
