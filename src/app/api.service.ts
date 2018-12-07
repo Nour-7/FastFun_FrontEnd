@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class ApiService {
@@ -8,16 +9,22 @@ export class ApiService {
     placeInfo = {}
     path = 'http://localhost:3000'
 
+    TOKEN_KEY = 'token'
     constructor( private http: HttpClient) {}
 
-    getMessages(userId) {
-        this.http.get<any>(this.path + '/posts/' + userId).subscribe(res => {
+    // getMessages(userId) {
+    //     this.http.get<any>(this.path + '/posts/' + userId).subscribe(res => {
+    //         this.messages = res
+    //     })
+    // }
+    getMessages(pname) {
+        this.http.get<any>(this.path + '/posts/' + pname).subscribe(res => {
             this.messages = res
         })
     }
 
-    postMessage(message) {
-        this.http.post(this.path + '/post', message,{responseType: 'text'}).subscribe(res => {
+    postMessage(message, pname) {
+        this.http.post(this.path + '/post/' + pname, message,{responseType: 'text'}).subscribe(res => {
         })
     }
 
@@ -46,6 +53,15 @@ export class ApiService {
         return this.http.get<any>(this.path + '/category/' + name);
     }
 
+    addItem(registerData) {
+        return this.http.post<any>(this.path + '/register', registerData).pipe(map(res => {
+                this.saveToken(res.token)
+        }))
+    }    
+    saveToken(token){
+        localStorage.setItem(this.TOKEN_KEY, token)
+
+    }
     getCategories() {
         return this.http.get<any>(this.path + '/category');
     }

@@ -12,6 +12,7 @@ export class ItemComponent {
     images = [1, 2, 3].map(() => `https://picsum.photos/900/500?random&t=${Math.random()}`);
     //pname = "Mince"
     pInfo: any = null
+    currentRate : Number
 
     constructor(private apiService: ApiService, private route: ActivatedRoute) { }
     ngOnInit() {
@@ -21,6 +22,7 @@ export class ItemComponent {
         this.route.params.subscribe(paramMap => {
             this.apiService.getPlaceInfo(paramMap.pname).subscribe(res => {
                 this.pInfo = res
+                this.currentRate = this.pInfo.Rate
             });
 
         });

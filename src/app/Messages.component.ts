@@ -4,17 +4,41 @@ import { ActivatedRoute } from '@angular/router'
 @Component({
     selector: 'messages',
     template: `
-  <div *ngFor="let message of apiservice.messages" >
-    <mat-card>{{message.msg}}</mat-card>
-  </div>
+    <div *ngFor="let message of apiService.massages" >
+            <mat-card>{{message.msg}}</mat-card>
+    </div>
+    <div *ngIf="mess">
+        <div *ngFor="let message of mess" >
+            <mat-card>message</mat-card>
+        </div>
+    </div>
   `
 
 })
 export class MessagesComponent {
-    constructor(private apiservice: ApiService ,private route: ActivatedRoute) { }
-    ngOnInit() {
-        var userId = this.route.snapshot.params.id
+    constructor(private apiService: ApiService ,private route: ActivatedRoute) { }
+    // e --openmess = ["hii", "wonderfull"]
+    // ngOnInit() {
+    //     var userId = this.route.snapshot.params.id
         
-        this.apiservice.getMessages(userId);
+    //     this.apiService.getMessages(userId);
+    // }
+    placeData : any
+    mess : any
+    
+    ngOnInit() {
+
+        this.route.params.subscribe(paramMap => {
+            this.apiService.getPlaceInfo(paramMap.pname).subscribe(res => {
+                this.placeData = res
+            });
+
+        });
+        // var place = this.route.snapshot.params.pname
+        // this.apiService.getMessages(place);
+        this.apiService.getMessages(this.placeData.name);
+    
     }
+
+
 }

@@ -36,6 +36,7 @@ import { FilterPipe } from './filter.pipe';
 import { UniquePipe } from './unique.pipe';
 import { SearchPipe } from './search.pipe';
 import { UploadComponent } from './upload.component';
+import { AddItemComponent } from './additem.component';
 
 const routes = [
   { path: '', component: HomeComponent },
@@ -66,8 +67,8 @@ const routes = [
     UniquePipe,
     CategoryComponent,
     SearchPipe,
-    UploadComponent
-
+    UploadComponent,
+    AddItemComponent
   ],
   imports: [
     BrowserModule,
