@@ -1,24 +1,12 @@
-
-  <div class="container">
-    <h1>File Upload</h1>
-    <%= typeof msg != 'undefined' ? msg : '' %>
-    <form action="http://localhost:3000/upload" method="POST" enctype="multipart/form-data">
-      <div class="file-field input-field">
-        <div class="btn grey">
-          <span>File</span>
-          <input name="myImage" type="file">
-        </div>
-        <div class="file-path-wrapper">
-          <input class="file-path validate" type="text">
-        </div>
-      </div>
-      <button type="submit" class="btn">Submit</button>
-    </form>
-    <br>
-  </div>
-
-  <script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>  
+<div class="drop-container" ngFileDrop [options]="options" (uploadOutput)="onUploadOutput($event)" [uploadInput]="uploadInput" [ngClass]="{ 'is-drop-over': dragOver }">
+  <h1>Drag &amp; Drop</h1>
+</div>
+ 
+<label class="upload-button">
+  <input type="file" ngFileSelect [options]="options"  name="avatar.png" (uploadOutput)="onUploadOutput($event)" [uploadInput]="uploadInput" multiple>
+  or choose file(s)
+</label>
+ 
+<button type="button" class="start-upload-btn" (click)="startUpload()">
+  Start Upload
+</button>

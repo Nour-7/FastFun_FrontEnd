@@ -14,7 +14,7 @@ import {
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import { FormsModule } from '@angular/forms'
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
-
+import { NgxUploaderModule } from 'ngx-uploader';
 //import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
 import { ApiService } from './api.service'
@@ -84,7 +84,8 @@ const routes = [
     BrowserAnimationsModule,
     NgbModule,
     MatRadioModule,
-    MatSelectModule
+    MatSelectModule,
+    NgxUploaderModule
   ],
   providers: [ApiService, AuthService, {
     provide: HTTP_INTERCEPTORS,
