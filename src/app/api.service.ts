@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class ApiService {
@@ -8,6 +9,7 @@ export class ApiService {
     placeInfo = {}
     path = 'http://localhost:3000'
 
+    TOKEN_KEY = 'token'
     constructor( private http: HttpClient) {}
 
     getMessages(userId) {
@@ -46,6 +48,15 @@ export class ApiService {
         return this.http.get<any>(this.path + '/category/' + name);
     }
 
+    addItem(registerData) {
+        return this.http.post<any>(this.path + '/register', registerData).pipe(map(res => {
+                this.saveToken(res.token)
+        }))
+    }    
+    saveToken(token){
+        localStorage.setItem(this.TOKEN_KEY, token)
+
+    }
     getCategories() {
         return this.http.get<any>(this.path + '/category');
     }

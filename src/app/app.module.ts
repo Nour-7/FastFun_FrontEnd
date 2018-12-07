@@ -35,6 +35,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { FilterPipe } from './filter.pipe';
 import { UniquePipe } from './unique.pipe';
 import { SearchPipe } from './search.pipe';
+import { AddItemComponent } from './additem.component';
 
 const routes = [
   { path: '', component: HomeComponent },
@@ -63,8 +64,8 @@ const routes = [
     FilterPipe,
     UniquePipe,
     CategoryComponent,
-    SearchPipe
-
+    SearchPipe,
+    AddItemComponent
   ],
   imports: [
     BrowserModule,
