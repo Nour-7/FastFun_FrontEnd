@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ApiService } from './api.service';
 import { ActivatedRoute} from '@angular/router'
 
@@ -30,11 +30,10 @@ import { ActivatedRoute} from '@angular/router'
 export class PostComponent {
     constructor(private apiService: ApiService, private route: ActivatedRoute) { }
     postMsg = ''
-
+    @Input() pname: String =''
     post() {
         console.log(this.postMsg)
-        var place =this.route.snapshot.params.pname
-        this.apiService.postMessage({msg: this.postMsg}, place)
+        this.apiService.postMessage({msg: this.postMsg , PlaceId: this.pname})
         
         // this.router.navigate(['/'])
         

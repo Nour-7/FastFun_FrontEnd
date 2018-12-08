@@ -13,6 +13,7 @@ export class ItemComponent {
     //pname = "Mince"
     pInfo: any = null
     currentRate : Number
+    editData1 : any = {}
 
     constructor(private apiService: ApiService, private route: ActivatedRoute) { }
     ngOnInit() {
@@ -24,5 +25,24 @@ export class ItemComponent {
             });
 
         });
+    }
+
+    delete() {
+        //console.log(this.postMsg)
+        this.apiService.deletePlace(this.pInfo._id)
+        
+        // this.router.navigate(['/'])
+        
+    }
+    edit(e) {
+        //console.log(this.postMsg)
+        console.log(e)
+        this.editData1.name = e.name
+        this.editData1 = e
+        console.log(this.pInfo._id)
+        this.apiService.putPlace(this.pInfo._id, this.editData1)
+        
+        // this.router.navigate(['/'])
+        
     }
 }

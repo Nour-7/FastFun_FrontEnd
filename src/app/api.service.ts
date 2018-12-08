@@ -4,7 +4,7 @@ import { map } from 'rxjs/operators';
 
 @Injectable()
 export class ApiService {
-    messages = []
+    
     users = []
     placeInfo = {}
     path = 'http://localhost:3000'
@@ -18,13 +18,15 @@ export class ApiService {
     //     })
     // }
     getMessages(pname) {
-        this.http.get<any>(this.path + '/posts/' + pname).subscribe(res => {
-            this.messages = res
-        })
+        return this.http.get<any>(this.path + '/posts/' + pname)
     }
 
-    postMessage(message, pname) {
-        this.http.post(this.path + '/post/' + pname, message,{responseType: 'text'}).subscribe(res => {
+    postMessage(message) {
+        this.http.post(this.path + '/post' , message,{responseType: 'text'}).subscribe(res => {
+        })
+    }
+    postPlace(placeinfo) {
+        this.http.post(this.path + '/newplace' , placeinfo).subscribe(res => {
         })
     }
 
@@ -47,6 +49,15 @@ export class ApiService {
 
     getPlaces() {
         return this.http.get<any>(this.path + '/places');
+    }
+    putPlace(id ,placeData) {
+        console.log(id)
+         this.http.put<any>(this.path + '/editplace/' + id, placeData).subscribe(res => {
+        });
+    }
+    deletePlace(id) {
+        return this.http.delete<any>(this.path + '/deleteplace/' + id).subscribe(res => {
+        });
     }
 
     getPlacesByCategory(name) {

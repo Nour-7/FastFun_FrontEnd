@@ -19,6 +19,8 @@
         </div><!-- row -->
     </div><!-- container -->
 </section><!-- intro-section -->
+<edit-item></edit-item>
+<button (click)="delete()" mat-raised-button color="primary">Delete</button>
 <mat-card *ngIf="pInfo">
     <div>
         <div class="tabs" style="width: 60%">
@@ -27,7 +29,7 @@
                     <ng-template ngbTabContent>
                         <mat-card-content>
                             <mat-list>
-                                <map lat={{pInfo.lat}} long={{pInfo.mag}}></map>
+                                <map lat={{pInfo.lat}} long={{pInfo.mag}}></map> 
                                 <mat-list-item>Name: {{pInfo.name}}</mat-list-item>
                                 <mat-list-item>Category: {{pInfo.category}}</mat-list-item>
                             </mat-list>
@@ -38,7 +40,8 @@
                 <ngb-tab title="Review">
                     <ng-template ngbTabContent>
                         <mat-card-content>
-                            <messages pname="Taboula" ></messages>
+                            <post pname={{pInfo.name}}></post>
+                            <messages pname={{pInfo.name}}></messages>
                         </mat-card-content>
                     </ng-template>
                 </ngb-tab>

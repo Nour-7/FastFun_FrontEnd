@@ -26,7 +26,7 @@ import { UsersComponent } from './users.component';
 import { ProfileComponent } from './profile.componnent'
 import { PostComponent } from './post.component'
 import { AuthInterceptorService } from './authInterceptor.service'
-import { HomeComponent } from './home.component';
+import { HomeComponent } from './home.component'
 import { ItemComponent } from './item.component';
 import { CategoryComponent } from './category.component';
 import { ImapComponent } from './imap.component';
@@ -37,6 +37,7 @@ import { UniquePipe } from './unique.pipe';
 import { SearchPipe } from './search.pipe';
 import { UploadComponent } from './upload.component';
 import { AddItemComponent } from './additem.component';
+import { EditItemComponent } from './editItem.component';
 
 const routes = [
   { path: '', component: HomeComponent },
@@ -68,7 +69,8 @@ const routes = [
     CategoryComponent,
     SearchPipe,
     UploadComponent,
-    AddItemComponent
+    AddItemComponent,
+    EditItemComponent,
   ],
   imports: [
     BrowserModule,

@@ -10,7 +10,7 @@ import { UploaderOptions, UploadFile, UploadInput, humanizeBytes, UploadOutput }
 })
 export class UploadComponent {
 
-    @Input() name: string= '';
+    @Input() img: string= '';
     constructor(private apiService: ApiService, private route: ActivatedRoute) {
         this.options = { concurrency: 1, maxUploads: 3 };
         this.files = []; // local uploading files array
@@ -59,7 +59,7 @@ export class UploadComponent {
             type: 'uploadAll',
             url: 'http://localhost:3000/upload',
             method: 'POST',
-            data: { myImage: this.name },
+            data: { myImage: this.img },
            
         };
 
