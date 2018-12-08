@@ -26,7 +26,7 @@ import { ActivatedRoute} from '@angular/router'
        </mat-card-title> 
     </mat-card-header>
     <mat-card-content> 
-     <messages></messages>
+     <messages  ></messages>
        </mat-card-content>
 
    </mat-card>

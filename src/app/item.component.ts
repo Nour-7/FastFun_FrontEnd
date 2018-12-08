@@ -17,8 +17,6 @@ export class ItemComponent {
     constructor(private apiService: ApiService, private route: ActivatedRoute) { }
     ngOnInit() {
 
-       
-
         this.route.params.subscribe(paramMap => {
             this.apiService.getPlaceInfo(paramMap.pname).subscribe(res => {
                 this.pInfo = res

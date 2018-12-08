@@ -1,16 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ApiService } from './api.service';
 import { ActivatedRoute } from '@angular/router'
 @Component({
     selector: 'messages',
     template: `
-    <div *ngFor="let message of apiService.massages" >
+    <div *ngFor="let message of apiService.massages">
             <mat-card>{{message.msg}}</mat-card>
-    </div>
-    <div *ngIf="mess">
-        <div *ngFor="let message of mess" >
-            <mat-card>message</mat-card>
-        </div>
     </div>
   `
 
@@ -24,19 +19,13 @@ export class MessagesComponent {
     //     this.apiService.getMessages(userId);
     // }
     placeData : any
-    mess : any
+     pname : String ="Taboula"
     
     ngOnInit() {
 
-        this.route.params.subscribe(paramMap => {
-            this.apiService.getPlaceInfo(paramMap.pname).subscribe(res => {
-                this.placeData = res
-            });
-
-        });
         // var place = this.route.snapshot.params.pname
         // this.apiService.getMessages(place);
-        this.apiService.getMessages(this.placeData.name);
+        this.apiService.getMessages(this.pname);
     
     }
 
