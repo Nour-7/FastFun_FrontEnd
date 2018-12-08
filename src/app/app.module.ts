@@ -14,7 +14,7 @@ import {
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import { FormsModule } from '@angular/forms'
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
-
+import { NgxUploaderModule } from 'ngx-uploader';
 //import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
 import { ApiService } from './api.service'
@@ -26,7 +26,7 @@ import { UsersComponent } from './users.component';
 import { ProfileComponent } from './profile.componnent'
 import { PostComponent } from './post.component'
 import { AuthInterceptorService } from './authInterceptor.service'
-import { HomeComponent } from './home.component';
+import { HomeComponent } from './home.component'
 import { ItemComponent } from './item.component';
 import { CategoryComponent } from './category.component';
 import { ImapComponent } from './imap.component';
@@ -35,6 +35,9 @@ import {MatSelectModule} from '@angular/material/select';
 import { FilterPipe } from './filter.pipe';
 import { UniquePipe } from './unique.pipe';
 import { SearchPipe } from './search.pipe';
+import { UploadComponent } from './upload.component';
+import { AddItemComponent } from './additem.component';
+import { EditItemComponent } from './editItem.component';
 
 const routes = [
   { path: '', component: HomeComponent },
@@ -44,7 +47,8 @@ const routes = [
   { path: 'users', component: UsersComponent },
   { path: 'profile/:id', component: ProfileComponent },
   { path: 'item/:pname', component: ItemComponent },
-  { path: 'category/:cname', component: CategoryComponent }
+  { path: 'category/:cname', component: CategoryComponent },
+  { path: 'upload', component: UploadComponent }
 ]
 
 @NgModule({
@@ -63,8 +67,10 @@ const routes = [
     FilterPipe,
     UniquePipe,
     CategoryComponent,
-    SearchPipe
-
+    SearchPipe,
+    UploadComponent,
+    AddItemComponent,
+    EditItemComponent,
   ],
   imports: [
     BrowserModule,
@@ -81,7 +87,8 @@ const routes = [
     BrowserAnimationsModule,
     NgbModule,
     MatRadioModule,
-    MatSelectModule
+    MatSelectModule,
+    NgxUploaderModule
   ],
   providers: [ApiService, AuthService, {
     provide: HTTP_INTERCEPTORS,

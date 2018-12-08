@@ -12,12 +12,15 @@
                     <ng-template #t let-fill="fill" let-index="index">
                         <span class="star" [class.filled]="fill === 100">&#9733;</span>
                     </ng-template>
-                    <ngb-rating [(rate)]="currentRate" [starTemplate]="t" max="5"></ngb-rating>
+                    <ngb-rating [(rate)]="currentRate" name = "rate" [starTemplate]="t" max="5"></ngb-rating>
+                    <p>{{currentRate}}</p>
                 </div><!-- intro -->
             </div><!-- col-sm-8 -->
         </div><!-- row -->
     </div><!-- container -->
 </section><!-- intro-section -->
+<edit-item></edit-item>
+<button (click)="delete()" mat-raised-button color="primary">Delete</button>
 <mat-card *ngIf="pInfo">
     <div>
         <div class="tabs" style="width: 60%">
@@ -26,12 +29,20 @@
                     <ng-template ngbTabContent>
                         <mat-card-content>
                             <mat-list>
-                                <map lat={{pInfo.lat}} long={{pInfo.mag}}></map>
+                                <map lat={{pInfo.lat}} long={{pInfo.mag}}></map> 
                                 <mat-list-item>Name: {{pInfo.name}}</mat-list-item>
                                 <mat-list-item>Category: {{pInfo.category}}</mat-list-item>
                             </mat-list>
                         </mat-card-content>
 
+                    </ng-template>
+                </ngb-tab>
+                <ngb-tab title="Review">
+                    <ng-template ngbTabContent>
+                        <mat-card-content>
+                            <post pname={{pInfo.name}}></post>
+                            <messages pname={{pInfo.name}}></messages>
+                        </mat-card-content>
                     </ng-template>
                 </ngb-tab>
             </ngb-tabset>

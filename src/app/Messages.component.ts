@@ -1,20 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ApiService } from './api.service';
 import { ActivatedRoute } from '@angular/router'
+import { platformCoreDynamicTesting } from '@angular/platform-browser-dynamic/testing/src/platform_core_dynamic_testing';
 @Component({
     selector: 'messages',
     template: `
-  <div *ngFor="let message of apiservice.messages" >
-    <mat-card>{{message.msg}}</mat-card>
-  </div>
+    <div *ngFor="let comment of comments">
+            <mat-card>{{comment.msg}}</mat-card>
+    </div>
   `
 
 })
+
 export class MessagesComponent {
-    constructor(private apiservice: ApiService ,private route: ActivatedRoute) { }
+    constructor(private apiService: ApiService ,private route: ActivatedRoute) { }
+    placeData : any
+   @Input() pname : String =""
+    comments = []
+    
     ngOnInit() {
-        var userId = this.route.snapshot.params.id
-        
-        this.apiservice.getMessages(userId);
+
+        // var place = this.route.snapshot.params.pname
+        // this.apiService.getMessages(place);
+        this.apiService.getMessages(this.pname).subscribe(res =>{
+            this.comments = res
+        });
+    
     }
+
+
 }

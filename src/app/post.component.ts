@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { ApiService } from './api.service'
+import { Component, Input } from '@angular/core';
+import { ApiService } from './api.service';
+import { ActivatedRoute} from '@angular/router'
 
 @Component({
     selector: 'post',
@@ -7,7 +8,7 @@ import { ApiService } from './api.service'
     <mat-card>
     <mat-card-header>
         <mat-card-title>
-        <h4>New Post</h4>
+        <h4>Comments</h4>
         </mat-card-title>
     </mat-card-header>
 
@@ -27,10 +28,14 @@ import { ApiService } from './api.service'
     `
 })
 export class PostComponent {
-    constructor(private apiService: ApiService) { }
+    constructor(private apiService: ApiService, private route: ActivatedRoute) { }
     postMsg = ''
-
+    @Input() pname: String =''
     post() {
-        this.apiService.postMessage({msg: this.postMsg})
+        console.log(this.postMsg)
+        this.apiService.postMessage({msg: this.postMsg , PlaceId: this.pname})
+        
+        // this.router.navigate(['/'])
+        
     }
 }
