@@ -22,8 +22,8 @@ export class ApiService {
         return this.http.get<any>(this.path + '/rates/' + placeid)
     }
 
-    postRate(rate, placeid) {
-        this.http.post(this.path + '/rate' , rate, placeid).subscribe(res => {
+    postRate(rate) {
+        this.http.post(this.path + '/rate' , rate, {responseType: 'text'}).subscribe(res => {
         })
     }
 
