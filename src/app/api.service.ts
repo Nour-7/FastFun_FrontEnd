@@ -17,6 +17,16 @@ export class ApiService {
     //         this.messages = res
     //     })
     // }
+
+    getRates(placeid) {
+        return this.http.get<any>(this.path + '/rates/' + placeid)
+    }
+
+    postRate(rate, placeid) {
+        this.http.post(this.path + '/rate' , rate, placeid).subscribe(res => {
+        })
+    }
+
     getMessages(pname) {
         return this.http.get<any>(this.path + '/posts/' + pname)
     }
