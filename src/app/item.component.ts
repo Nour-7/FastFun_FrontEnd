@@ -45,4 +45,7 @@ export class ItemComponent {
         // this.router.navigate(['/'])
         
     }
+    goBackPage(){
+        window.history.back()
+    }
 }

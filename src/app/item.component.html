@@ -20,7 +20,7 @@
     </div><!-- container -->
 </section><!-- intro-section -->
 <edit-item></edit-item>
-<button (click)="delete()" mat-raised-button color="primary">Delete</button>
+<button (click)="delete(); goBackPage();" mat-raised-button color="primary">Delete</button>
 <mat-card *ngIf="pInfo">
     <div>
         <div class="tabs" style="width: 60%">

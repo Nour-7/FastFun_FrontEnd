@@ -22,22 +22,22 @@ import { AuthService } from './auth.service'
 import { MessagesComponent } from './messages.component'
 import { RegisterComponent } from './register.component'
 import { LoginComponent } from './login.component'
-import { UsersComponent } from './users.component';
+import { UsersComponent } from './users.component'
 import { ProfileComponent } from './profile.componnent'
 import { PostComponent } from './post.component'
 import { AuthInterceptorService } from './authInterceptor.service'
 import { HomeComponent } from './home.component'
-import { ItemComponent } from './item.component';
-import { CategoryComponent } from './category.component';
-import { ImapComponent } from './imap.component';
-import {MatSelectModule} from '@angular/material/select';
+import { ItemComponent } from './item.component'
+import { CategoryComponent } from './category.component'
+import { ImapComponent } from './imap.component'
+import {MatSelectModule} from '@angular/material/select'
  
-import { FilterPipe } from './filter.pipe';
-import { UniquePipe } from './unique.pipe';
-import { SearchPipe } from './search.pipe';
-import { UploadComponent } from './upload.component';
-import { AddItemComponent } from './additem.component';
-import { EditItemComponent } from './editItem.component';
+import { FilterPipe } from './filter.pipe'
+import { UniquePipe } from './unique.pipe'
+import { SearchPipe } from './search.pipe'
+import { UploadComponent } from './upload.component'
+import { AddItemComponent } from './additem.component'
+import { EditItemComponent } from './editItem.component'
 
 const routes = [
   { path: '', component: HomeComponent },

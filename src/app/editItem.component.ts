@@ -1,8 +1,9 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation , Input} from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ApiService } from './api.service';
 import { Router } from '@angular/router';
 import { ItemComponent } from './item.component';
+import { ActivatedRoute } from '@angular/router'
 // import { Injectable } from '@angular/core';
 // import { $ } from 'protractor';
 
@@ -27,16 +28,39 @@ export class EditItemComponent {
     closeResult: string;
     itemData: any = {}
     ErrorMessage = ""
-    editData : any = {}
+    // editData : any = {}
     c = ''
-    categorie
+    categorie = []
+    
+    @Input() editData: any = {};
 
-    constructor(private apiService: ApiService, private router: Router, private modalService: NgbModal, private itemComponent: ItemComponent) {}
+    constructor(
+      private apiService: ApiService,
+      private router: Router,
+      private modalService: NgbModal, 
+      private itemComponent: ItemComponent,
+      private route: ActivatedRoute) {}
     ngOnInit() {
+      this.route.params.subscribe(paramMap => {
+        this.apiService.getPlaceInfo(paramMap.pname).subscribe(res => {
+            this.editData = res
+            
+        });
+      });
+
+      this.apiService.getCategories().subscribe(res =>{
+        this.categorie = res
+      });
+
+
     }
     edit() {
         this.itemComponent.edit(this.editData)
-       
+        //this.router.navigate(['././item/{{editData.name}}'])
+      
+    }
+    goBackPage(){
+      window.history.back()
     }
     openLg(content) {
     this.modalService.open(content, { size: 'lg' });

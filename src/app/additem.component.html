@@ -57,7 +57,7 @@
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-light" (click)="modal.close('Close click'); ">Close</button>
-        <button (click)=" post(); modal.close('Close click');" mat-raised-button color="primary">Done</button>
+        <button (click)=" post(); modal.close('Close click'); refreshPage();" mat-raised-button color="primary">Done</button>
         <button class="btn btn-outline-primary mb-2 mr-2" (click)="openLg(content1)">Upload image</button>
     </div>
   </ng-template>

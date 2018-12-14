@@ -1,69 +1,70 @@
 <ng-template #content let-modal>
         <div class="modal-header">
-          <h4 class="modal-title">Create new item page</h4>
+          <h4 class="modal-title">Edit item page</h4>
           <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
             <form>
+               
                 <mat-form-field>
-                    <input [(ngModel)]="editData.name"  name="Name"  required matInput placeholder="Name">
+                    <input class="form-control" [(ngModel)]="editData.name" name = "Name" matInput placeholder="Name">
                 </mat-form-field>
                 <br/>
-    
+
                 <mat-form-field>
-                        <input [(ngModel)]="editData.category" name="Category"  required matInput placeholder="Category">
+                        <input [(ngModel)]="editData.category" name="Category"required matInput placeholder="Category">
                 </mat-form-field>
                 <br/>
-                <!-- <mat-form-field>
-                    <mat-select [(value)]="c">
-                        <mat-option *ngFor="let caty of categorie " [value]="caty.name">{{caty.name}}</mat-option>
-                        <mat-option [value]="'All'">All</mat-option>
-                    </mat-select>
-                </mat-form-field>
-                <br> -->
-    
+
                 <mat-form-field>
-                        <input  [(ngModel)]="editData.Location" name="Location"  required matInput placeholder="Location">
+                    <input class="form-control" [(ngModel)]="editData.Location" name = "Location" matInput placeholder="Location">
                 </mat-form-field>
                 <br/>
+
                 <mat-form-field>
-                    <input type="number" [(ngModel)]="editData.lat" name="lat"  required matInput placeholder="lat">
+                    <input class="form-control" [(ngModel)]="editData.lat" name = "Latitudinal" matInput placeholder="Latitudinal">
                 </mat-form-field>
                 <br/>
-    
+
                 <mat-form-field>
-                    <input type="number" [(ngModel)]="editData.mag" name="mag"  required matInput placeholder="mag">
+                    <input class="form-control" [(ngModel)]="editData.mag" name = "Longtiudinal" matInput placeholder="Longtiudinal">
                 </mat-form-field>
                 <br/>
-    
+
                 <mat-form-field>
-                        <input  [(ngModel)]="editData.Tel" name="Teleophone" matInput placeholder="Telephone number">
+                    <input class="form-control" [(ngModel)]="editData.Tel" name = "Telephone" matInput placeholder="Telephone no.">
                 </mat-form-field>
                 <br/>
-    
+
                 <mat-form-field style="width: 100%">
-                        <textarea [(ngModel)]="editData.Email" name="Email" matInput placeholder="Email" ></textarea>
-                    </mat-form-field>
-                <br/>
-                
-                <mat-form-field style="width: 100%">
-                    <textarea [(ngModel)]="editData.discripe" name="Description" matInput placeholder="Description" ></textarea>
+                    <input class="form-control" [(ngModel)]="editData.Email" name = "Email" matInput placeholder="Email">
                 </mat-form-field>
                 <br/>
+
+                <mat-form-field style="width: 100%">
+                        <textarea [(ngModel)]="editData.discripe" name="Description" matInput placeholder="Description" ></textarea>
+                </mat-form-field>
+                <br/>
+               
+                <!-- <mat-form-field style="z-index: 9999999important">
+                        <mat-select [(value)]="editData.category">
+                            <mat-option *ngFor="let cate of categorie" [value]="cate.name">{{cate.name}}</mat-option>
+                        </mat-select>
+                </mat-form-field> -->
                 
             </form>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-light" (click)="modal.close('Close click'); ">Close</button>
-            <button (click)="edit(); modal.close('Close click');" mat-raised-button color="primary">Done</button>
+            <button (click)="edit(); modal.close('Close click'); goBackPage();" mat-raised-button color="primary">Done</button>
             <button class="btn btn-outline-primary mb-2 mr-2" (click)="openLg(content1)">Upload image</button>
         </div>
       </ng-template>
       <ng-template #content1 let-modal>
         <div class="modal-header">
-          <h4 class="modal-title">Create new item page</h4>
+          <h4 class="modal-title">Edit item page</h4>
           <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -81,4 +82,9 @@
       
       
       <button class="btn btn-outline-primary mb-2 mr-2" (click)="openLg(content)">Edit</button>
+      <!-- <script>
+          function refreshpage(){
+              window.location.reload();
+          }
+      </script> -->
       

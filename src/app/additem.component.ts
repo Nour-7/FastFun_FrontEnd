@@ -42,6 +42,9 @@ export class AddItemComponent {
            
    //  }
     }
+    refreshPage(){
+      window.location.reload();
+    }
 
     openLg(content) {
     this.modalService.open(content, { size: 'lg' });
