@@ -17,7 +17,11 @@ export class ItemComponent {
     editData1 : any = {}
     show : boolean = false
     isratted: Number
-    constructor(private apiService: ApiService, private route: ActivatedRoute) { }
+    cacheKey : any;
+
+    constructor(private apiService: ApiService, private route: ActivatedRoute ) {
+        this.cacheKey = Math.random().toString();
+    }
     ngOnInit() {
         this.route.params.subscribe(paramMap => {
             this.apiService.getPlaceInfo(paramMap.pname).subscribe(res => {
@@ -51,11 +55,7 @@ export class ItemComponent {
     }
     edit(e) {
         //console.log(this.postMsg)
-        console.log(e)
-        this.editData1.name = e.name
-        this.editData1 = e
-        console.log(this.pInfo._id)
-        this.apiService.putPlace(this.pInfo._id, this.editData1)
+       
         
         // this.router.navigate(['/'])
         
@@ -68,5 +68,9 @@ export class ItemComponent {
         this.editData1.Sum += this.UserRate
         this.editData1.Count++;
         this.apiService.putPlace(this.pInfo._id, this.editData1)
+    }
+    
+    goBackPage(){
+        window.history.back()
     }
 }

@@ -39,9 +39,8 @@ export class ApiService {
         this.http.post(this.path + '/post' , message,{responseType: 'text'}).subscribe(res => {
         })
     }
-    postPlace(placeinfo) {
-        this.http.post(this.path + '/newplace' , placeinfo).subscribe(res => {
-        })
+    postPlace(placeinfo ) {
+      return this.http.post(this.path + '/newplace' , placeinfo );
     }
 
     getUsers() {

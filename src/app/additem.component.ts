@@ -2,6 +2,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ApiService } from './api.service';
 import { Router } from '@angular/router';
+
 // import { Injectable } from '@angular/core';
 // import { $ } from 'protractor';
 
@@ -23,28 +24,26 @@ import { Router } from '@angular/router';
   `]
 })
 export class AddItemComponent {
-    closeResult: string;
-    itemData: any = {}
-    ErrorMessage = ""
-    c = ''
-    categorie
-    constructor(private apiService: ApiService, private router: Router, private modalService: NgbModal) {}
-    ngOnInit() {
-      this.apiService.getCategories().subscribe(res =>{
-          this.categorie = res
-      });
-    }
-    post() {
-        this.itemData.img=this.itemData.name +".png"
-        //if (this.itemData.name && this.itemData.description && this.itemData.category) {
-        this.apiService.postPlace(this.itemData)
-        console.log(this.itemData)
-           
-   //  }
-    }
+  closeResult: string;
+  itemData: any = {}
+  ErrorMessage = ""
+  c = ''
+  category = []
+  constructor(private apiService: ApiService, private router: Router, private modalService: NgbModal) { }
+  ngOnInit() {
+    this.apiService.getCategories().subscribe(res => {
+      this.category = res
+      console.log(this.category[3])
+    });
+  }
+  post() {
+    this.apiService.postPlace(this.itemData).subscribe(id => 
+      this.itemData.img = id +".png"
+    );
+  }
 
-    openLg(content) {
+  openLg(content) {
     this.modalService.open(content, { size: 'lg' });
-    }
+  }
 
 }
