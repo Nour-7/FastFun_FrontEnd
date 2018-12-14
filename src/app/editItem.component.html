@@ -57,9 +57,8 @@
             </form>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-light" (click)="modal.close('Close click'); ">Close</button>
-            <button (click)="edit(); modal.close('Close click'); goBackPage();" mat-raised-button color="primary">Done</button>
-            <button class="btn btn-outline-primary mb-2 mr-2" (click)="openLg(content1)">Upload image</button>
+            <button type="button" class="btn btn-light" (click)="modal.close('Close click'); ">Cancel</button>
+            <button class="btn btn-outline-primary mb-2 mr-2" (click)=" edit();modal.close('Close click'); openLg(content1);">Next</button>
         </div>
       </ng-template>
       <ng-template #content1 let-modal>
@@ -72,11 +71,12 @@
         <div class="modal-body">
             <form>
                 <br/>
-                <upload img={{editData.name}} ></upload>
+                <upload img={{img}} ></upload>
             </form>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-light" (click)="modal.close('Close click'); ">Close</button>
+                <button type="button" class="btn btn-light" (click)="modal.close('Close click'); ">Cancel</button>
+                <button (click)=" modal.close('Close click');" mat-raised-button color="primary">Done</button>
         </div>
       </ng-template>
       

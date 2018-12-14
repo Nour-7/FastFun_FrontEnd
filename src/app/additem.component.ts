@@ -2,6 +2,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ApiService } from './api.service';
 import { Router } from '@angular/router';
+
 // import { Injectable } from '@angular/core';
 // import { $ } from 'protractor';
 
@@ -37,7 +38,7 @@ export class AddItemComponent {
   }
   post() {
     this.apiService.postPlace(this.itemData).subscribe(id => 
-      this.itemData.img = id 
+      this.itemData.img = id +".png"
     );
   }
 

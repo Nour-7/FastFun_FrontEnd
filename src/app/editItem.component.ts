@@ -4,6 +4,7 @@ import { ApiService } from './api.service';
 import { Router } from '@angular/router';
 import { ItemComponent } from './item.component';
 import { ActivatedRoute } from '@angular/router'
+import {Location} from '@angular/common';
 // import { Injectable } from '@angular/core';
 // import { $ } from 'protractor';
 
@@ -31,19 +32,22 @@ export class EditItemComponent {
     // editData : any = {}
     c = ''
     categorie = []
-    
-    @Input() editData: any = {};
+    img : String = ""
+    @Input() editData: any = {}
+    ename : String = ""
+     
 
     constructor(
       private apiService: ApiService,
       private router: Router,
       private modalService: NgbModal, 
-      private itemComponent: ItemComponent,
-      private route: ActivatedRoute) {}
+      private route: ActivatedRoute,
+      private location: Location) {}
     ngOnInit() {
       this.route.params.subscribe(paramMap => {
         this.apiService.getPlaceInfo(paramMap.pname).subscribe(res => {
             this.editData = res
+            this.img =  this.editData.img
             
         });
       });
@@ -55,8 +59,10 @@ export class EditItemComponent {
 
     }
     edit() {
-        this.itemComponent.edit(this.editData)
-        //this.router.navigate(['././item/{{editData.name}}'])
+        this.apiService.putPlace(this.editData._id, this.editData)
+        this.ename = this.editData.name
+        //this.location.replaceState(`/item/${this.ename}`)
+        this.router.navigate([`././item/${this.ename}`])
       
     }
     goBackPage(){
