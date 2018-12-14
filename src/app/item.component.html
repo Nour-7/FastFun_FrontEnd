@@ -14,7 +14,7 @@
                     </ng-template>
                     <div *ngIf = show>
                     <ngb-rating [(rate)]="UserRate" name = "rate" [starTemplate]="t" max="5"></ngb-rating>
-                    <button (click) = "postRate()"mat-raised-button color="primary">{{rateEdit}}</button>
+                    <button (click) = "postRate()" mat-raised-button color="primary">Rate</button>
                     </div>
                     <p>{{PlaceRate}}</p>
                 </div><!-- intro -->

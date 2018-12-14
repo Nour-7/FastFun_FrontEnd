@@ -8,7 +8,7 @@ export class ApiService {
     users = []
     placeInfo = {}
     path = 'http://localhost:3000'
-
+    ratted : Number
     TOKEN_KEY = 'token'
     constructor( private http: HttpClient) {}
 
@@ -18,13 +18,17 @@ export class ApiService {
     //     })
     // }
 
-    getRates(placeid) {
-        return this.http.get<any>(this.path + '/rates/' + placeid)
-    }
+    // getRates(placeid) {
+    //     return this.http.get<any>(this.path + '/rates/' + placeid)
+    // }
 
     postRate(rate) {
         this.http.post(this.path + '/rate' , rate, {responseType: 'text'}).subscribe(res => {
         })
+    }
+
+    Rated (placeid) {
+        return this.http.get<any>(this.path + '/rated/' + placeid)
     }
 
     getMessages(pname) {
