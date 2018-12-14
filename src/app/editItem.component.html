@@ -48,11 +48,11 @@
                 </mat-form-field>
                 <br/>
                
-                <!-- <mat-form-field style="z-index: 9999999important">
-                        <mat-select [(value)]="editData.category">
-                            <mat-option *ngFor="let cate of categorie" [value]="cate.name">{{cate.name}}</mat-option>
-                        </mat-select>
-                </mat-form-field> -->
+        
+                <!-- <mat-radio-group [(value)]="editData.category">
+                    <mat-radio-button *ngFor="let cate of categorie" [value]="cate.name">{{cate.name}}</mat-option>
+                </mat-radio-group> -->
+        
                 
             </form>
         </div>
@@ -82,9 +82,5 @@
       
       
       <button class="btn btn-outline-primary mb-2 mr-2" (click)="openLg(content)">Edit</button>
-      <!-- <script>
-          function refreshpage(){
-              window.location.reload();
-          }
-      </script> -->
+
       
