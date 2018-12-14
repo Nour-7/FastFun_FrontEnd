@@ -52,13 +52,11 @@
                 <textarea [(ngModel)]="itemData.discripe" name="Description" matInput placeholder="Description" ></textarea>
             </mat-form-field>
             <br/>
-            
         </form>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-light" (click)="modal.close('Close click'); ">Close</button>
-        <button (click)=" post(); modal.close('Close click');" mat-raised-button color="primary">Done</button>
-        <button class="btn btn-outline-primary mb-2 mr-2" (click)="openLg(content1)">Upload image</button>
+        <button type="button" class="btn btn-light" (click)="modal.close('Close click'); ">Cancel</button>
+        <button class="btn btn-outline-primary mb-2 mr-2" (click)=" post();modal.close('Close click'); openLg(content1);">Next</button>
     </div>
   </ng-template>
   <ng-template #content1 let-modal>
@@ -71,11 +69,12 @@
     <div class="modal-body">
         <form>
             <br/>
-            <upload img={{itemData.name}} ></upload>
+            <upload img={{itemData.img}} ></upload>
         </form>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-light" (click)="modal.close('Close click'); ">Close</button>
+        <button type="button" class="btn btn-light" (click)="modal.close('Close click'); ">Cancel</button>
+        <button (click)=" modal.close('Close click');" mat-raised-button color="primary">Done</button>
     </div>
   </ng-template>
   

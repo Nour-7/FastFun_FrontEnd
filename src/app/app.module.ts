@@ -31,7 +31,6 @@ import { ItemComponent } from './item.component';
 import { CategoryComponent } from './category.component';
 import { ImapComponent } from './imap.component';
 import {MatSelectModule} from '@angular/material/select';
- 
 import { FilterPipe } from './filter.pipe';
 import { UniquePipe } from './unique.pipe';
 import { SearchPipe } from './search.pipe';
