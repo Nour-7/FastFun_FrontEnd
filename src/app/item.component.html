@@ -16,7 +16,7 @@
                     <ngb-rating [(rate)]="UserRate" name = "rate" [starTemplate]="t" max="5"></ngb-rating>
                     <button (click) = "postRate()" mat-raised-button color="primary">Rate</button>
                     </div>
-                    <p>{{PlaceRate}}</p>
+                    <p>{{PlaceRate.toFixed(1)}}</p>
                 </div><!-- intro -->
             </div><!-- col-sm-8 -->
         </div><!-- row -->
