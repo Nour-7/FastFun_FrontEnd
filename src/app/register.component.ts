@@ -25,5 +25,9 @@ export class RegisterComponent {
             })
         }
     }
+    
+    refresh(): void {
+        window.location.reload();
+      }
 }
 

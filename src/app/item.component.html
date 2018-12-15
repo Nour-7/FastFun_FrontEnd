@@ -13,8 +13,8 @@
                         <span class="star" [class.filled]="fill === 100">&#9733;</span>
                     </ng-template>
                     <div *ngIf = show>
-                    <ngb-rating [(rate)]="UserRate" name = "rate" [starTemplate]="t" max="5"></ngb-rating>
-                    <button (click) = "postRate()" mat-raised-button color="primary">Rate</button>
+                        <ngb-rating [(rate)]="UserRate" name = "rate" [starTemplate]="t" max="5"></ngb-rating>
+                        <button (click) = "postRate()" mat-raised-button color="primary">Rate</button>
                     </div>
                     <p>{{PlaceRate}}</p>
                 </div><!-- intro -->
@@ -22,8 +22,8 @@
         </div><!-- row -->
     </div><!-- container -->
 </section><!-- intro-section -->
-<edit-item></edit-item>
-<button (click)="delete(); goBackPage();" mat-raised-button color="primary">Delete</button>
+<edit-item *ngIf = admin></edit-item>
+<button *ngIf = admin (click)="delete(); goBackPage();" mat-raised-button color="primary">Delete</button>
 <mat-card *ngIf="pInfo">
     <div>
         <div class="tabs" style="width: 60%">

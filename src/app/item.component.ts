@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ApiService } from './api.service';
 import { ActivatedRoute } from '@angular/router'
-
+import { HttpClient } from '@angular/common/http'
 
 @Component({
     selector: 'item',
@@ -18,11 +18,13 @@ export class ItemComponent {
     show : boolean = false
     isratted: Number
     cacheKey : any;
-
-    constructor(private apiService: ApiService, private route: ActivatedRoute ) {
+    admin: boolean
+    constructor(private apiService: ApiService, private route: ActivatedRoute, private http: HttpClient) {
         this.cacheKey = Math.random().toString();
     }
     ngOnInit() {
+        this.isAdmin()
+
         this.route.params.subscribe(paramMap => {
             this.apiService.getPlaceInfo(paramMap.pname).subscribe(res => {
                 this.pInfo = res
@@ -43,8 +45,20 @@ export class ItemComponent {
 
         });
         
-        
     }
+
+    isAdmin(){
+        this.http.get( 'http://localhost:3000/isadmin').subscribe(res =>{},error =>{
+           if(error.status == 200){
+               this.admin = true;
+           }
+           else if(error.status == 401){
+              this.admin = false;
+           }
+           console.log(this.admin)
+       })
+       
+   }
 
     delete() {
         //console.log(this.postMsg)

@@ -39,9 +39,10 @@ export class LoginComponent {
     ErrorMessage="";
     constructor(private authservice: AuthService,private router:Router) { }
     
-    post(){
+    post (){
         console.log(this.loginData)
         this.authservice.loginUser(this.loginData).subscribe(res =>{
+            this.refresh()
             this.router.navigate(['/'])
         },error =>{
             if(error.status == 401){
@@ -50,4 +51,7 @@ export class LoginComponent {
         })
     }
 
+    refresh():void{
+        window.location.reload();
+    }
 }

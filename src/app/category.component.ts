@@ -1,7 +1,7 @@
 import { Component ,Input } from '@angular/core';
 import { ApiService } from './api.service';
 import { ActivatedRoute} from '@angular/router'
-
+import { HttpClient } from '@angular/common/http'
 @Component({
     selector: 'category',
     templateUrl: './category.component.html'
@@ -16,8 +16,8 @@ export class CategoryComponent {
     location = 'Any'
     @Input() name: string= '';
     placesByCat  :string []= []
-
-    constructor(private apiService: ApiService, private route: ActivatedRoute)  { }
+    admin : boolean 
+    constructor(private apiService: ApiService, private route: ActivatedRoute, private http: HttpClient)  { }
     ngOnInit() {
         this.apiService.getCategories().subscribe(res =>{
             this.categories = res
@@ -34,7 +34,19 @@ export class CategoryComponent {
         this.apiService.getPlacesByCategory(this.cat).subscribe(res =>{
             this.placesByCat = res
         });
-    
+
     }
-      
+    
+    isAdmin(){
+        this.http.get( 'http://localhost:3000/isadmin').subscribe(res =>{},error =>{
+           if(error.status == 200){
+               this.admin = true;
+           }
+           else if(error.status == 401){
+              this.admin = false;
+           }
+           console.log(this.admin)
+       })
+       
+   }
 }
