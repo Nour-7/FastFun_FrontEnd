@@ -26,13 +26,13 @@ export class AddItemComponent {
     closeResult: string;
     itemData: any = {}
     ErrorMessage = ""
-    c = ''
-    categorie
+    // c = ''
+    // categorie
     constructor(private apiService: ApiService, private router: Router, private modalService: NgbModal) {}
     ngOnInit() {
-      this.apiService.getCategories().subscribe(res =>{
-          this.categorie = res
-      });
+      // this.apiService.getCategories().subscribe(res =>{
+      //     this.categorie = res
+      // });
     }
     post() {
         this.itemData.img=this.itemData.name +".png"

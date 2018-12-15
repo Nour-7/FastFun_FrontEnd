@@ -1,4 +1,4 @@
-<ng-template #content let-modal>
+<ng-template #content let-modal style="z-index: 1">
         <div class="modal-header">
           <h4 class="modal-title">Edit item page</h4>
           <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
@@ -13,11 +13,33 @@
                 </mat-form-field>
                 <br/>
 
-                <mat-form-field>
-                        <input [(ngModel)]="editData.category" name="Category"required matInput placeholder="Category">
-                </mat-form-field>
-                <br/>
-
+                <mat-radio-group [(ngModel)]= "editData.category" placeholder = "Category" [ngModelOptions]="{standalone: true}">
+                    <mat-radio-button  value="Restaurants">
+                        Restaurants
+                    </mat-radio-button>
+                    <br>
+                    <mat-radio-button  value="Cafes">
+                        Cafes
+                    </mat-radio-button>
+                    <br>
+                    <mat-radio-button  value="KidsZone">
+                        KidsZone
+                    </mat-radio-button>
+                    <br>
+                    <mat-radio-button  value="Cinema">
+                        Cinema
+                    </mat-radio-button>
+                    <br>
+                    <mat-radio-button  value="PlayZone">
+                        PlayZone
+                    </mat-radio-button>
+                    <br>
+                    <mat-radio-button  value="CooWorkingSpace">
+                        CooWorkingSpace
+                    </mat-radio-button>
+                    <br>
+                </mat-radio-group>
+                
                 <mat-form-field>
                     <input class="form-control" [(ngModel)]="editData.Location" name = "Location" matInput placeholder="Location">
                 </mat-form-field>
@@ -47,12 +69,6 @@
                         <textarea [(ngModel)]="editData.discripe" name="Description" matInput placeholder="Description" ></textarea>
                 </mat-form-field>
                 <br/>
-               
-        
-                <!-- <mat-radio-group [(value)]="editData.category">
-                    <mat-radio-button *ngFor="let cate of categorie" [value]="cate.name">{{cate.name}}</mat-option>
-                </mat-radio-group> -->
-        
                 
             </form>
         </div>
@@ -80,7 +96,7 @@
         </div>
       </ng-template>
       
-      
-      <button class="btn btn-outline-primary mb-2 mr-2" (click)="openLg(content)">Edit</button>
+      <button type="button" class="btn btn-light" (click)="openLg(content)">Edit</button>
+
 
       

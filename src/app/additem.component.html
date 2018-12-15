@@ -12,16 +12,32 @@
             </mat-form-field>
             <br/>
 
-            <mat-form-field>
-                    <input [(ngModel)]="itemData.category" name="Category"  required matInput placeholder="Category">
-            </mat-form-field>
-            <br/>
-            <!-- <mat-form-field>
-                <mat-select [(ngModel)]="itemData.category" style="position: relative; z-index: 1">
-                    <mat-option *ngFor="let catyy of categorie ">{{catyy.name}}</mat-option>
-                </mat-select>
-            </mat-form-field>
-            <br> -->
+            <mat-radio-group [(ngModel)]= "itemData.category" required [ngModelOptions]="{standalone: true}">
+                <mat-radio-button  value="Restaurants">
+                    Restaurants
+                </mat-radio-button>
+                <br>
+                <mat-radio-button  value="Cafes">
+                    Cafes
+                </mat-radio-button>
+                <br>
+                <mat-radio-button  value="KidsZone">
+                    KidsZone
+                </mat-radio-button>
+                <br>
+                <mat-radio-button  value="Cinema">
+                    Cinema
+                </mat-radio-button>
+                <br>
+                <mat-radio-button  value="PlayZone">
+                    PlayZone
+                </mat-radio-button>
+                <br>
+                <mat-radio-button  value="CooWorkingSpace">
+                    CooWorkingSpace
+                </mat-radio-button>
+                <br>
+            </mat-radio-group>
 
             <mat-form-field>
                     <input  [(ngModel)]="itemData.Location" name="Location"  required matInput placeholder="Location">
